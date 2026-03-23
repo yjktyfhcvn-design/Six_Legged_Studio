@@ -1,0 +1,394 @@
+[gd_scene format=3 uid="uid://81ujtorr3wbh"]
+
+[ext_resource type="Texture2D" uid="uid://cd3dyrsgwhfpb" path="res://Assets/InfantryantAssets/AntPincerLeft.png" id="1_yj1h2"]
+[ext_resource type="Texture2D" uid="uid://buqtb2jv43ftb" path="res://Assets/InfantryantAssets/AntPincerRight.png" id="2_tan78"]
+[ext_resource type="Texture2D" uid="uid://c4xw2wgyka75q" path="res://Assets/InfantryantAssets/AntLeftLeg1.png" id="3_bauqg"]
+[ext_resource type="Texture2D" uid="uid://im5kd0htkq1b" path="res://Assets/InfantryantAssets/AntRightLeg1.png" id="4_tv5io"]
+[ext_resource type="Texture2D" uid="uid://dr4dn6hluemep" path="res://Assets/InfantryantAssets/AntLeftLeg2.png" id="5_44kmx"]
+[ext_resource type="Texture2D" uid="uid://7ub3lfsbqs1" path="res://Assets/InfantryantAssets/AntLegRight2.png" id="6_5hq7m"]
+[ext_resource type="Texture2D" uid="uid://ccwgypvst3lx" path="res://Assets/InfantryantAssets/AntLegLeft3.png" id="7_6jt3l"]
+[ext_resource type="Texture2D" uid="uid://pnje75t6en5f" path="res://Assets/InfantryantAssets/AntLegRight3.png" id="8_6awff"]
+[ext_resource type="Texture2D" uid="uid://c5cwv07qmo7tk" path="res://Assets/InfantryantAssets/AntHead.png" id="9_7wlrm"]
+[ext_resource type="Texture2D" uid="uid://bvr7vsj0juuo" path="res://Assets/InfantryantAssets/AntThorax.png" id="10_avc16"]
+[ext_resource type="Texture2D" uid="uid://dc5oes7y3idt5" path="res://Assets/InfantryantAssets/thorax.png" id="11_r2cpy"]
+
+[sub_resource type="Animation" id="Animation_yj1h2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/AntLeftLeg3Bone:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.011567]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/AntLeftLeg2Bone2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.1359317]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/AntLeftLeg1Bone:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.7562947]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/AntRightLeg3Bone:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.027599605]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/AntRightLeg2Bone:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.2759398]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/AntRightLeg1Bone:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.12314632]
+}
+
+[sub_resource type="Animation" id="Animation_tan78"]
+resource_name = "walk"
+length = 0.4155656
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/AntLeftLeg3Bone:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20306046, 0.40454683),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-3.011567, -2.7679794, -3.011567]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/AntLeftLeg2Bone2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0031482242, 0.19991225, 0.4013986),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-3.1359317, -3.4350216, -3.1359317]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/AntLeftLeg1Bone:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19833812, 0.40454683),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-2.7562947, -2.5285652, -2.7562947]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/AntRightLeg3Bone:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2000729, 0.40816244),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.38143477, 0.042568177, -0.38143477]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/AntRightLeg2Bone:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.20778279, 0.4013986),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.2759398, -0.39901024, -0.2759398]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/AntRightLeg1Bone:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.20463458, 0.4029727),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.3208405, -0.07471403, -0.3208405]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bauqg"]
+_data = {
+&"RESET": SubResource("Animation_yj1h2"),
+&"walk": SubResource("Animation_tan78")
+}
+
+[sub_resource type="Animation" id="Animation_tv5io"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pincers/AntPincerLeft:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pincers/AntPincerRight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_44kmx"]
+resource_name = "pincers"
+length = 0.34590036
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pincers/AntPincerLeft:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20177522),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.11348534, -0.24281879]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pincers/AntPincerRight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20177522),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.1271079, 0.22469501]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hq7m"]
+_data = {
+&"RESET": SubResource("Animation_tv5io"),
+&"pincers": SubResource("Animation_44kmx")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yj1h2"]
+radius = 116.21622
+height = 762.1621
+
+[node name="infantry_ant" type="CharacterBody2D" unique_id=314625903]
+position = Vector2(-2, -81)
+scale = Vector2(0.37, 0.37)
+
+[node name="Leg Animation Player" type="AnimationPlayer" parent="." unique_id=1041321099]
+libraries/ = SubResource("AnimationLibrary_bauqg")
+
+[node name="PincerAnimation" type="AnimationPlayer" parent="." unique_id=675614271]
+libraries/ = SubResource("AnimationLibrary_5hq7m")
+
+[node name="Pincers" type="Node2D" parent="." unique_id=508083161]
+position = Vector2(5.4054055, -83.783775)
+
+[node name="AntPincerLeft" type="Sprite2D" parent="Pincers" unique_id=2002492623]
+position = Vector2(-67.567566, -56.756744)
+texture = ExtResource("1_yj1h2")
+
+[node name="AntPincerRight" type="Sprite2D" parent="Pincers" unique_id=1421143867]
+position = Vector2(59.459457, -59.459454)
+texture = ExtResource("2_tan78")
+
+[node name="AntBodySprites" type="Node2D" parent="." unique_id=715731207]
+
+[node name="AntLeftLeg1" type="Sprite2D" parent="AntBodySprites" unique_id=200691284]
+position = Vector2(-192.11977, 128.79619)
+rotation = -0.36589605
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("3_bauqg")
+
+[node name="AntRightLeg1" type="Sprite2D" parent="AntBodySprites" unique_id=1131379441]
+position = Vector2(186.43115, 142.19308)
+rotation = 0.4714379
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("4_tv5io")
+
+[node name="AntLeftLeg2" type="Sprite2D" parent="AntBodySprites" unique_id=753101968]
+position = Vector2(-172.64967, 257.79437)
+rotation = 0.25361162
+texture = ExtResource("5_44kmx")
+
+[node name="AntLegRight2" type="Sprite2D" parent="AntBodySprites" unique_id=1209099195]
+position = Vector2(176.29575, 264.387)
+rotation = -0.19861169
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_5hq7m")
+
+[node name="AntLegLeft3" type="Sprite2D" parent="AntBodySprites" unique_id=664189778]
+position = Vector2(-210.81091, 456.75677)
+rotation = -0.08708621
+texture = ExtResource("7_6jt3l")
+
+[node name="AntLegRight3" type="Sprite2D" parent="AntBodySprites" unique_id=489128607]
+position = Vector2(218.91893, 440.54056)
+rotation = 0.18029936
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("8_6awff")
+
+[node name="AntHead" type="Sprite2D" parent="AntBodySprites" unique_id=1547733965]
+position = Vector2(2.7026672, -27.027023)
+texture = ExtResource("9_7wlrm")
+
+[node name="AntAbdomen" type="Sprite2D" parent="AntBodySprites" unique_id=860971785]
+position = Vector2(5.4054055, 199.99998)
+texture = ExtResource("10_avc16")
+
+[node name="AntThorax" type="Sprite2D" parent="AntBodySprites" unique_id=821733892]
+position = Vector2(5.405406, 454.05408)
+texture = ExtResource("11_r2cpy")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=556401370]
+
+[node name="AntLeftLeg1Bone" type="Bone2D" parent="Skeleton2D" unique_id=807491041]
+position = Vector2(-72.97298, 143.24324)
+rotation = -2.7562947
+scale = Vector2(0.9999999, 0.9999999)
+rest = Transform2D(-0.84983677, -0.527046, 0.527046, -0.84983677, -97.2973, 156.75674)
+auto_calculate_length_and_angle = false
+length = 60.868
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/AntLeftLeg1Bone" unique_id=1691534993]
+position = Vector2(115.841446, -31.391665)
+rotation = 2.3903987
+remote_path = NodePath("../../../AntBodySprites/AntLeftLeg1")
+
+[node name="AntRightLeg1Bone" type="Bone2D" parent="Skeleton2D" unique_id=725502]
+position = Vector2(81.08108, 137.83784)
+rotation = -0.12314632
+scale = Vector2(0.9999998, 0.9999998)
+rest = Transform2D(0.90206546, -0.43159926, 0.43159926, 0.90206546, 83.78378, 162.16214)
+auto_calculate_length_and_angle = false
+length = 60.868
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/AntRightLeg1Bone" unique_id=2113539049]
+position = Vector2(104.01729, 17.262962)
+rotation = 0.5945842
+remote_path = NodePath("../../../AntBodySprites/AntRightLeg1")
+
+[node name="AntLeftLeg2Bone2" type="Bone2D" parent="Skeleton2D" unique_id=1749125103]
+position = Vector2(-70.27027, 267.56763)
+rotation = -3.1359317
+rest = Transform2D(-0.99931824, 0.036919937, -0.036919937, -0.99931824, -67.56755, 256.75674)
+auto_calculate_length_and_angle = false
+length = 60.868
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/AntLeftLeg2Bone2" unique_id=428947954]
+position = Vector2(102.43309, 9.193537)
+rotation = -2.893642
+remote_path = NodePath("../../../AntBodySprites/AntLeftLeg2")
+
+[node name="AntRightLeg2Bone" type="Bone2D" parent="Skeleton2D" unique_id=59277351]
+position = Vector2(75.675674, 256.75674)
+rotation = -0.2759398
+scale = Vector2(0.9999999, 0.9999999)
+rest = Transform2D(0.9996191, -0.0275961, 0.0275961, 0.9996191, 75.675674, 256.75674)
+auto_calculate_length_and_angle = false
+length = 60.868
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/AntRightLeg2Bone" unique_id=1411361947]
+position = Vector2(94.7347, 34.755642)
+rotation = 0.077328116
+remote_path = NodePath("../../../AntBodySprites/AntLegRight2")
+
+[node name="AntLeftLeg3Bone" type="Bone2D" parent="Skeleton2D" unique_id=398300752]
+position = Vector2(-116.21623, 443.24326)
+rotation = -3.011567
+rest = Transform2D(-0.9915586, -0.12965946, 0.12965946, -0.9915586, -116.216225, 443.24323)
+auto_calculate_length_and_angle = false
+length = 60.868
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/AntLeftLeg3Bone" unique_id=1710465858]
+position = Vector2(92.04401, -25.66455)
+rotation = 2.924481
+remote_path = NodePath("../../../AntBodySprites/AntLegLeft3")
+
+[node name="AntRightLeg3Bone" type="Bone2D" parent="Skeleton2D" unique_id=1195970531]
+position = Vector2(132.43243, 427.02704)
+rotation = -0.027599605
+scale = Vector2(0.9999998, 0.9999998)
+rest = Transform2D(0.9996191, -0.0275961, 0.0275961, 0.9996191, 124.324326, 440.54053)
+auto_calculate_length_and_angle = false
+length = 60.868
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/AntRightLeg3Bone" unique_id=1603414504]
+position = Vector2(86.080635, 15.895059)
+rotation = 0.20789899
+remote_path = NodePath("../../../AntBodySprites/AntLegRight3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1084886281]
+position = Vector2(2.7027028, 227.02704)
+shape = SubResource("CapsuleShape2D_yj1h2")
