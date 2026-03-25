@@ -1,5 +1,44 @@
-[gd_scene format=3 uid="uid://dc6hgpar431oi"]
+[gd_scene load_steps=3 format=3 uid="uid://dc6hgpar431oi"]
 
+[ext_resource type="Script" uid="uid://cjbyksglolmsi" path="res://first_level.gd" id="1_5puvx"]
+[gd_scene load_steps=7 format=3 uid="uid://dc6hgpar431oi"]
+
+[ext_resource type="PackedScene" uid="uid://dhm5idmtve0wx" path="res://player_character.tscn" id="1_5puvx"]
+[ext_resource type="PackedScene" path="res://web_weapon.tscn" id="1_fnyhn"]
+[ext_resource type="Texture2D" uid="uid://dgoujhig3wg3g" path="res://Assets/1st_level.png" id="3_7m365"]
+[ext_resource type="PackedScene" uid="uid://cfq3i1r4dj605" path="res://basic_npc.tscn" id="4_5nl2g"]
+
+[sub_resource type="Curve2D" id="Curve2D_fnyhn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1152, 2, 0, 0, 0, 0, 1151, 652)
+}
+point_count = 3
+
+[node name="FirstLevel" type="Node"]
+script = ExtResource("1_5puvx")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+
+[node name="Mob_Timer" type="Timer" parent="."]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_fnyhn")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(0, 2)
+
+[node name="Player_Spawn" type="Marker2D" parent="."]
+position = Vector2(600, 350)
+
+[connection signal="timeout" from="Mob_Timer" to="." method="_on_mob_timer_timeout"]
+[node name="FirstLevel" type="Node2D"]
+
+[node name="web_weapon" parent="." instance=ExtResource("1_fnyhn")]
+position = Vector2(578, 340)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 [ext_resource type="PackedScene" uid="uid://dhm5idmtve0wx" path="res://player_character.tscn" id="1_5puvx"]
 [ext_resource type="PackedScene" uid="uid://ft8a5t24hu52" path="res://web_weapon.tscn" id="1_fnyhn"]
 
@@ -22,6 +61,15 @@ position = Vector2(579, 5)
 rotation = 1.5766534
 shape = SubResource("RectangleShape2D_5puvx")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4.5, 321.5)
+shape = SubResource("RectangleShape2D_ccbq8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1139, 323)
+shape = SubResource("RectangleShape2D_ccbq8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1606128763]
 position = Vector2(4.5, 321.5)
 shape = SubResource("RectangleShape2D_ccbq8")
@@ -35,6 +83,13 @@ position = Vector2(575, 643)
 rotation = 1.5766534
 shape = SubResource("RectangleShape2D_5puvx")
 
-[node name="PlayerCharacter" parent="." unique_id=66292963 instance=ExtResource("1_5puvx")]
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_5puvx")]
 position = Vector2(580.99994, 327)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
+
+[node name="1StLevel" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(577.1011, 329.22238)
+rotation = -1.5707964
+scale = Vector2(0.67359024, 0.7891097)
+texture = ExtResource("3_7m365")
