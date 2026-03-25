@@ -7,13 +7,11 @@ var can_click_again = false
 
 
 
-var dashed_left = false
-var dashed_right = false 
-var dashed_up = false 
-var dashed_down = false 
-
+ 
 var dashing = false
-
+var dashing_left = false
+var dashing_right
+var dashng_
 
 @onready var player_character: CharacterBody2D = $"."
 
@@ -78,7 +76,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if dashing == true:
-		movement_speed = 1500
+		movement_speed = 1250
 		_rotation_speed = TAU * 3.75
 	if dashing == false:
 		movement_speed = 500
