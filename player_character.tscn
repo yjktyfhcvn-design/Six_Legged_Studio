@@ -331,6 +331,9 @@ radius = 90.44335
 [sub_resource type="CircleShape2D" id="CircleShape2D_8bl0p"]
 radius = 41.48494
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_he2na"]
+radius = 165.01895
+
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=66292963]
 rotation = 0.009717941
 scale = Vector2(0.8, 0.8)
@@ -347,7 +350,7 @@ autoplay = &"Walk"
 [node name="LegRight1Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=2000633243]
 position = Vector2(76.99999, -31)
 rotation = -0.28879926
-scale = Vector2(0.9999997, 0.9999997)
+scale = Vector2(0.9999993, 0.9999993)
 rest = Transform2D(0.9556417, -0.29453173, 0.29453173, 0.9556417, 76.99999, -31)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -356,7 +359,7 @@ bone_angle = 0.0
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegRight1Bone" unique_id=1451161619]
 rotation = 0.23897621
 scale = Vector2(0.37, 0.37)
-remote_path = NodePath("../../../../Body Sprites/LegRight1")
+remote_path = NodePath("../../../../BodySprites/LegRight1")
 
 [node name="LegLeft1Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1373880870]
 position = Vector2(-79, -31)
@@ -367,7 +370,7 @@ rest = Transform2D(-0.9207679, -0.39011085, 0.39011085, -0.9207679, -79, -31)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegLeft1Bone" unique_id=310930068]
 rotation = 2.7892678
 scale = Vector2(0.37, 0.37)
-remote_path = NodePath("../../../../Body Sprites/LegLeft1")
+remote_path = NodePath("../../../../BodySprites/LegLeft1")
 
 [node name="LegRight2Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1898458168]
 position = Vector2(81, 17)
@@ -378,7 +381,7 @@ rest = Transform2D(0.9908185, -0.13519867, 0.13519867, 0.9908185, 81, 17)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegRight2Bone" unique_id=1984353951]
 rotation = 0.24215977
 scale = Vector2(0.37, 0.37)
-remote_path = NodePath("../../../../Body Sprites/LegRight2")
+remote_path = NodePath("../../../../BodySprites/LegRight2")
 
 [node name="LegLeft2Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1955973171]
 position = Vector2(-87, 19)
@@ -388,7 +391,7 @@ rest = Transform2D(-0.9207679, -0.39011085, 0.39011085, -0.9207679, -87, 19)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegLeft2Bone" unique_id=1360171200]
 rotation = 2.6548085
 scale = Vector2(0.37, 0.37)
-remote_path = NodePath("../../../../Body Sprites/LegLeft2")
+remote_path = NodePath("../../../../BodySprites/LegLeft2")
 
 [node name="LegRight3Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=281438905]
 position = Vector2(69, 61)
@@ -397,7 +400,7 @@ rest = Transform2D(0.9913299, 0.13139634, -0.13139634, 0.9913299, 69, 61)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegRight3Bone" unique_id=135681313]
 scale = Vector2(0.37, 0.37)
-remote_path = NodePath("../../../../Body Sprites/LegRight3")
+remote_path = NodePath("../../../../BodySprites/LegRight3")
 
 [node name="LegLeft3Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1960721111]
 position = Vector2(-76, 62.999992)
@@ -407,7 +410,7 @@ rest = Transform2D(-0.9963949, -0.08483658, 0.08483658, -0.9963949, -76, 62.9999
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegLeft3Bone" unique_id=353359073]
 rotation = 2.9421475
 scale = Vector2(0.37, 0.37)
-remote_path = NodePath("../../../../Body Sprites/LegLeft3")
+remote_path = NodePath("../../../../BodySprites/LegLeft3")
 
 [node name="LegRight4Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1544000471]
 position = Vector2(48, 100)
@@ -417,7 +420,7 @@ rest = Transform2D(0.883644, 0.4681595, -0.4681595, 0.883644, 48, 100)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegRight4Bone" unique_id=1534823995]
 rotation = -0.49361315
 scale = Vector2(0.37, 0.37)
-remote_path = NodePath("../../../../Body Sprites/LegRight4")
+remote_path = NodePath("../../../../BodySprites/LegRight4")
 
 [node name="LegLeft4Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1673701431]
 position = Vector2(-49.000004, 104)
@@ -428,85 +431,100 @@ rest = Transform2D(-0.84694284, 0.5316839, -0.5316839, -0.84694284, -49.000004, 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegLeft4Bone" unique_id=1091442135]
 rotation = -2.6576889
 scale = Vector2(0.37, 0.37)
-remote_path = NodePath("../../../../Body Sprites/LegLeft4")
+remote_path = NodePath("../../../../BodySprites/LegLeft4")
 
-[node name="Body Sprites" type="Node2D" parent="." unique_id=187332611]
+[node name="BodySprites" type="Node2D" parent="." unique_id=187332611]
 
-[node name="Head" type="Sprite2D" parent="Body Sprites" unique_id=430490623]
+[node name="Head" type="Sprite2D" parent="BodySprites" unique_id=430490623]
 position = Vector2(-0.99999905, -82.00001)
 scale = Vector2(0.3619247, 0.3619246)
 texture = ExtResource("1_4yf86")
 
-[node name="LegLeft1" type="Sprite2D" parent="Body Sprites" unique_id=2075854090]
+[node name="LegLeft1" type="Sprite2D" parent="BodySprites" unique_id=2075854090]
 position = Vector2(-79, -31)
 rotation = 0.04842708
 scale = Vector2(0.37, 0.37)
 texture = ExtResource("1_5up26")
 offset = Vector2(-32.426666, -81.06667)
 
-[node name="LegLeft2" type="Sprite2D" parent="Body Sprites" unique_id=500876720]
+[node name="LegLeft2" type="Sprite2D" parent="BodySprites" unique_id=500876720]
 position = Vector2(-87, 19)
 rotation = -0.086032175
 scale = Vector2(0.37, 0.37)
 texture = ExtResource("2_4akcp")
 offset = Vector2(-32.42665, -43.235558)
 
-[node name="LegLeft3" type="Sprite2D" parent="Body Sprites" unique_id=1877047510]
+[node name="LegLeft3" type="Sprite2D" parent="BodySprites" unique_id=1877047510]
 position = Vector2(-76.00001, 62.99999)
 rotation = -0.11450651
 scale = Vector2(0.37, 0.37)
 texture = ExtResource("3_0hvvw")
 offset = Vector2(-45.93779, 40.53334)
 
-[node name="LegLeft4" type="Sprite2D" parent="Body Sprites" unique_id=1285119143]
+[node name="LegLeft4" type="Sprite2D" parent="BodySprites" unique_id=1285119143]
 position = Vector2(-49.000004, 104)
 rotation = -0.076683804
 scale = Vector2(0.36999992, 0.36999992)
 texture = ExtResource("4_6qc1w")
 offset = Vector2(-43.235573, 64.85336)
 
-[node name="LegRight1" type="Sprite2D" parent="Body Sprites" unique_id=512187676]
+[node name="LegRight1" type="Sprite2D" parent="BodySprites" unique_id=512187676]
 position = Vector2(76.99999, -31)
-rotation = -0.059989292
-scale = Vector2(0.3699999, 0.3699999)
+rotation = -0.059989285
+scale = Vector2(0.36999974, 0.36999974)
 texture = SubResource("CompressedTexture2D_eh3ko")
 offset = Vector2(43.23555, -83.76889)
 
-[node name="LegRight2" type="Sprite2D" parent="Body Sprites" unique_id=1474166295]
+[node name="LegRight2" type="Sprite2D" parent="BodySprites" unique_id=1474166295]
 position = Vector2(81, 17.000002)
-rotation = 0.106545806
-scale = Vector2(0.36999974, 0.36999974)
+rotation = 0.10654561
+scale = Vector2(0.3699998, 0.3699998)
 texture = SubResource("CompressedTexture2D_bgme8")
 offset = Vector2(48.64, -43.235558)
 
-[node name="LegRight3" type="Sprite2D" parent="Body Sprites" unique_id=1510867009]
+[node name="LegRight3" type="Sprite2D" parent="BodySprites" unique_id=1510867009]
 position = Vector2(69, 61.000004)
 rotation = 0.13177742
 scale = Vector2(0.37, 0.37)
 texture = ExtResource("6_8bl0p")
 offset = Vector2(89.17334, 37.8311)
 
-[node name="LegRight4" type="Sprite2D" parent="Body Sprites" unique_id=989231987]
+[node name="LegRight4" type="Sprite2D" parent="BodySprites" unique_id=989231987]
 position = Vector2(47.999996, 100)
 rotation = -0.0064063785
 scale = Vector2(0.37000003, 0.37000003)
 texture = ExtResource("7_he2na")
 offset = Vector2(48.639984, 72.96001)
 
-[node name="Body" type="Sprite2D" parent="Body Sprites" unique_id=18859206]
+[node name="Body" type="Sprite2D" parent="BodySprites" unique_id=18859206]
 position = Vector2(1.1368684e-13, 23)
 rotation = 0.003530246
 scale = Vector2(0.38493723, 0.38493714)
 texture = ExtResource("8_p3c78")
 
-[node name="Body Collision" type="CollisionShape2D" parent="." unique_id=1163209417]
+[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=1163209417]
 visible = false
 position = Vector2(4.7683716e-07, 19)
 rotation = 0.33049217
 shape = SubResource("CircleShape2D_4yf86")
 
-[node name="Head Collision" type="CollisionShape2D" parent="." unique_id=703705299]
+[node name="HeadCollision" type="CollisionShape2D" parent="." unique_id=703705299]
 visible = false
 position = Vector2(-1.0000019, -67)
 rotation = 0.33049217
 shape = SubResource("CircleShape2D_8bl0p")
+
+[node name="FullBodyWorldBoundryCollision" type="CollisionShape2D" parent="." unique_id=121685918]
+z_index = 1
+position = Vector2(-0.9462601, 31.260672)
+shape = SubResource("CircleShape2D_he2na")
+
+[node name="DoubleClickTimer" type="Timer" parent="." unique_id=1592023225]
+wait_time = 0.2
+
+[node name="DashTimer" type="Timer" parent="." unique_id=1455317591]
+wait_time = 0.5
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="DoubleClickTimer" to="." method="_on_double_click_timer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

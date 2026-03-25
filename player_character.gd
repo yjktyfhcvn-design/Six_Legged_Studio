@@ -1,5 +1,20 @@
 extends CharacterBody2D
 
+var can_click_again = false
+@onready var DOUBLE_CLICK_TIMER: Timer = $DoubleClickTimer
+
+@onready var dash_timer: Timer = $DashTimer
+
+
+
+var dashed_left = false
+var dashed_right = false 
+var dashed_up = false 
+var dashed_down = false 
+
+var dashing = false
+
+
 @onready var player_character: CharacterBody2D = $"."
 
 
@@ -16,15 +31,67 @@ var character_direction : Vector2
 #and character_direction is the rotation of the sprite
 var movement_direction : Vector2
 
+func _ready():
+	add_child(DOUBLE_CLICK_TIMER)
+	
+
+		
 func move(direction : Vector2):
 	movement_direction = direction
-
+	
 
 func _physics_process(delta: float) -> void:
 	
+	if Input.is_action_just_pressed("move_left") and can_click_again == false:
+		DOUBLE_CLICK_TIMER.start()
+		can_click_again = true
+	elif Input.is_action_just_pressed("move_left") and can_click_again:
+		dashing = true
+		dash_timer.start()
+		can_click_again = false
+		
+	if Input.is_action_just_pressed("move_right") and can_click_again == false:
+		DOUBLE_CLICK_TIMER.start()
+		can_click_again = true
+	elif Input.is_action_just_pressed("move_right") and can_click_again:
+		dashing = true
+		dash_timer.start()
+		can_click_again = false
+		
+	if Input.is_action_just_pressed("move_up") and can_click_again == false:
+		DOUBLE_CLICK_TIMER.start()
+		can_click_again = true
+	elif Input.is_action_just_pressed("move_up") and can_click_again:
+		dashing = true
+		dash_timer.start()
+		can_click_again = false
+	
+	if Input.is_action_just_pressed("move_down") and can_click_again == false:
+		DOUBLE_CLICK_TIMER.start()
+		can_click_again = true
+	elif Input.is_action_just_pressed("move_down") and can_click_again:
+		dashing = true
+		dash_timer.start()
+		can_click_again = false
+	
+#ADD CODE THAT DECREASES MOVEMENT SPEED IF TWO KEYS ARE BEING PRESSED!!!
+	
+	
+	if dashing == true:
+		movement_speed = 1500
+		_rotation_speed = TAU * 3.75
+	if dashing == false:
+		movement_speed = 500
+		_rotation_speed = TAU * 1.75
+		
+		
+		
+		
+	
+
+	
 	movement_direction.x = Input.get_axis("move_left","move_right")
 	movement_direction.y = Input.get_axis("move_up","move_down")
-	
 	
 	#ROTATION CODE ONLY
 	character_direction.y = Input.get_axis("move_left", "move_right")
@@ -36,6 +103,7 @@ func _physics_process(delta: float) -> void:
 		#DIRECTION CHARACTER IS FACING
 		#DIRECTION CHARACTER IS FACING
 		
+		
 		#This is very annoying, 
 		#it controls the orientation of the player character
 
@@ -44,8 +112,6 @@ func _physics_process(delta: float) -> void:
 		#abs theta is the absolute value of the direction the sprite needs to rotate to reach it's target position
 		player_character.rotation += clamp(_rotation_speed * delta, 0 , abs(_theta)) * sign(_theta)
 		
-		print(abs(_theta))
-	
 		#DIRECTION CHARACTER IS MOVING
 		#DIRECTION CHARACTER IS MOVING
 		#DIRECTION CHARACTER IS MOVING
@@ -53,5 +119,15 @@ func _physics_process(delta: float) -> void:
 		velocity = movement_direction * movement_speed
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, 60)
-	move_and_slide()
+	print(movement_speed)
 	
+	move_and_slide()
+
+
+#This timer basically is the time limit for whether or not a player can make their initial click a double click
+#Once 0.25 seconds passes, they have to restart the double click
+func _on_double_click_timer_timeout() -> void:
+	can_click_again = false
+#This sets the length of time the player is moving at an accelerate speed
+func _on_dash_timer_timeout() -> void:
+	dashing = false
