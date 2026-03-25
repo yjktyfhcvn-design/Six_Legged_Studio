@@ -15,6 +15,7 @@ size = Vector2(29, 663)
 position = Vector2(578, 340)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1525485948]
+z_index = 1
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1050807322]
 position = Vector2(579, 5)
@@ -36,3 +37,4 @@ shape = SubResource("RectangleShape2D_5puvx")
 
 [node name="PlayerCharacter" parent="." unique_id=66292963 instance=ExtResource("1_5puvx")]
 position = Vector2(580.99994, 327)
+scale = Vector2(0.5, 0.5)
