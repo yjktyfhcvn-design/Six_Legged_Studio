@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://ft8a5t24hu52"]
+[gd_scene format=3 uid="uid://ft8a5t24hu52"]
 
 [ext_resource type="Script" uid="uid://bymctoheosl55" path="res://web_weapon.gd" id="1_f8ost"]
 [ext_resource type="Texture2D" uid="uid://dnan4dwda42kj" path="res://Assets/SpiderAssets/web_asset.png" id="1_lvody"]

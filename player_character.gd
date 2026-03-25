@@ -1,25 +1,133 @@
 extends CharacterBody2D
 
+var can_click_again = false
+@onready var DOUBLE_CLICK_TIMER: Timer = $DoubleClickTimer
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@onready var dash_timer: Timer = $DashTimer
 
+
+
+var dashed_left = false
+var dashed_right = false 
+var dashed_up = false 
+var dashed_down = false 
+
+var dashing = false
+
+
+@onready var player_character: CharacterBody2D = $"."
+
+
+@export var _rotation_speed : float = TAU * 1.5
+var _theta : float
+var character_direction : Vector2
+
+@export var movement_speed : float = 500
+
+#MUST READ
+#MUST READ
+#MUST READ:
+#I KNOW HOW CONFUSING it is, but movement_direction is the only the x,y movement
+#and character_direction is the rotation of the sprite
+var movement_direction : Vector2
+
+func _ready():
+	add_child(DOUBLE_CLICK_TIMER)
+	
+
+		
+func move(direction : Vector2):
+	movement_direction = direction
+	
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	
+	if Input.is_action_just_pressed("move_left") and can_click_again == false:
+		DOUBLE_CLICK_TIMER.start()
+		can_click_again = true
+	elif Input.is_action_just_pressed("move_left") and can_click_again:
+		dashing = true
+		dash_timer.start()
+		can_click_again = false
+		
+	if Input.is_action_just_pressed("move_right") and can_click_again == false:
+		DOUBLE_CLICK_TIMER.start()
+		can_click_again = true
+	elif Input.is_action_just_pressed("move_right") and can_click_again:
+		dashing = true
+		dash_timer.start()
+		can_click_again = false
+		
+	if Input.is_action_just_pressed("move_up") and can_click_again == false:
+		DOUBLE_CLICK_TIMER.start()
+		can_click_again = true
+	elif Input.is_action_just_pressed("move_up") and can_click_again:
+		dashing = true
+		dash_timer.start()
+		can_click_again = false
+	
+	if Input.is_action_just_pressed("move_down") and can_click_again == false:
+		DOUBLE_CLICK_TIMER.start()
+		can_click_again = true
+	elif Input.is_action_just_pressed("move_down") and can_click_again:
+		dashing = true
+		dash_timer.start()
+		can_click_again = false
+	
+#ADD CODE THAT DECREASES MOVEMENT SPEED IF TWO KEYS ARE BEING PRESSED!!!
+	
+	
+	if dashing == true:
+		movement_speed = 1500
+		_rotation_speed = TAU * 3.75
+	if dashing == false:
+		movement_speed = 500
+		_rotation_speed = TAU * 1.75
+		
+		
+		
+		
+	
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	
+	movement_direction.x = Input.get_axis("move_left","move_right")
+	movement_direction.y = Input.get_axis("move_up","move_down")
+	
+	#ROTATION CODE ONLY
+	character_direction.y = Input.get_axis("move_left", "move_right")
+	character_direction.x = Input.get_axis("move_down", "move_up")
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	if character_direction:
+		
+		#DIRECTION CHARACTER IS FACING
+		#DIRECTION CHARACTER IS FACING
+		#DIRECTION CHARACTER IS FACING
+		
+		
+		#This is very annoying, 
+		#it controls the orientation of the player character
+
+		_theta = wrapf(atan2(character_direction.y, character_direction.x) - rotation, -PI, PI)
+
+		#abs theta is the absolute value of the direction the sprite needs to rotate to reach it's target position
+		player_character.rotation += clamp(_rotation_speed * delta, 0 , abs(_theta)) * sign(_theta)
+		
+		#DIRECTION CHARACTER IS MOVING
+		#DIRECTION CHARACTER IS MOVING
+		#DIRECTION CHARACTER IS MOVING
+		
+		velocity = movement_direction * movement_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		velocity = velocity.move_toward(Vector2.ZERO, 60)
+	print(movement_speed)
+	
 	move_and_slide()
+
+
+#This timer basically is the time limit for whether or not a player can make their initial click a double click
+#Once 0.25 seconds passes, they have to restart the double click
+func _on_double_click_timer_timeout() -> void:
+	can_click_again = false
+#This sets the length of time the player is moving at an accelerate speed
+func _on_dash_timer_timeout() -> void:
+	dashing = false
