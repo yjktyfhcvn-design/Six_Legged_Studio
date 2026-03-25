@@ -1,12 +1,6 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://cbxiua56jhyhy"]
 
 [ext_resource type="Script" uid="uid://ceu3upa04nhs8" path="res://basic_npc.gd" id="1_j7ean"]
-=======
-[gd_scene load_steps=4 format=3 uid="uid://cfq3i1r4dj605"]
-
-[ext_resource type="Script" path="res://basic_npc.gd" id="1_j7ean"]
->>>>>>> Stashed changes
 
 [sub_resource type="SphereMesh" id="SphereMesh_lbwi3"]
 
