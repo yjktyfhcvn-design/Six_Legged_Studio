@@ -12,6 +12,7 @@ var dashing = false
 var dash_direction = null
 var dash_target = null
 
+
 @onready var player_character: CharacterBody2D = $"."
 
 
