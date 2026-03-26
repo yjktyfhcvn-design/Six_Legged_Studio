@@ -4,6 +4,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	game_start()
 	pass # Replace with function body.
 
 
@@ -17,11 +18,15 @@ func game_over() -> void:
 	
 func game_start() -> void:
 	#Change depending on what we call the player node
-	$Player.start($StartPosition.position)
+	$PlayerCharacter.start($StartPosition.position)
+	#Change Later to when game starts (but to test code)
+	$Mob_Timer.start()
+	
 	pass
 
 
 func _on_mob_timer_timeout() -> void:
+	print("spawned")
 	var mob = Basic_Mob.instantiate()
 	
 	#Chooses a Random Location on Path to Spawn
