@@ -9,9 +9,9 @@ var can_click_again = false
 
  
 var dashing = false
-var dash_direction = null
-var dash_target = null
-
+var dashing_left = false
+var dashing_right
+var dashng_
 
 @onready var player_character: CharacterBody2D = $"."
 
@@ -43,56 +43,41 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("move_left") and can_click_again == false:
 		DOUBLE_CLICK_TIMER.start()
 		can_click_again = true
-		dash_direction = "left"
 	elif Input.is_action_just_pressed("move_left") and can_click_again:
-		
 		dashing = true
 		dash_timer.start()
-		dash_target = "left"
-		
 		can_click_again = false
 		
 	if Input.is_action_just_pressed("move_right") and can_click_again == false:
 		DOUBLE_CLICK_TIMER.start()
 		can_click_again = true
-		dash_direction = "right"
 	elif Input.is_action_just_pressed("move_right") and can_click_again:
 		dashing = true
 		dash_timer.start()
-		dash_target = "right"
-		
 		can_click_again = false
 		
 	if Input.is_action_just_pressed("move_up") and can_click_again == false:
 		DOUBLE_CLICK_TIMER.start()
 		can_click_again = true
-		dash_direction = "up"
 	elif Input.is_action_just_pressed("move_up") and can_click_again:
 		dashing = true
 		dash_timer.start()
-		dash_target = "up"
-		
 		can_click_again = false
 	
 	if Input.is_action_just_pressed("move_down") and can_click_again == false:
 		DOUBLE_CLICK_TIMER.start()
 		can_click_again = true
-		dash_direction = "down"
 	elif Input.is_action_just_pressed("move_down") and can_click_again:
 		dashing = true
 		dash_timer.start()
-		dash_target = "down"
-		
 		can_click_again = false
 	
 #ADD CODE THAT DECREASES MOVEMENT SPEED IF TWO KEYS ARE BEING PRESSED!!!
 	
-	print(dash_direction)
 	
 	if dashing == true:
-		if dash_target == dash_direction:
-			movement_speed = 1250
-			_rotation_speed = TAU * 6
+		movement_speed = 1250
+		_rotation_speed = TAU * 3.75
 	if dashing == false:
 		movement_speed = 500
 		_rotation_speed = TAU * 1.75
