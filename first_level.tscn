@@ -1,10 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc6hgpar431oi"]
+[gd_scene format=3 uid="uid://dc6hgpar431oi"]
 
 [ext_resource type="PackedScene" uid="uid://dhm5idmtve0wx" path="res://player_character.tscn" id="1_5puvx"]
 [ext_resource type="PackedScene" uid="uid://ft8a5t24hu52" path="res://web_weapon.tscn" id="1_fnyhn"]
 [ext_resource type="Script" uid="uid://cjbyksglolmsi" path="res://first_level.gd" id="1_mne6x"]
 [ext_resource type="PackedScene" uid="uid://cbxiua56jhyhy" path="res://basic_npc.tscn" id="3_5nl2g"]
 [ext_resource type="Texture2D" uid="uid://dgoujhig3wg3g" path="res://Assets/1st_level.png" id="3_7m365"]
+[ext_resource type="Texture2D" uid="uid://b66e8s0v0cce1" path="res://Assets/Amber.png" id="4_l1oci"]
+[ext_resource type="Texture2D" uid="uid://b3pqhsc42pfdd" path="res://Assets/AmberOverlay.png" id="5_8o0y0"]
+[ext_resource type="Texture2D" uid="uid://bskah0yltqte4" path="res://Assets/Untitled_Artwork (5).png" id="6_5jff8"]
+[ext_resource type="Texture2D" uid="uid://ck1bat24bccya" path="res://Assets/Untitled_Artwork (4).png" id="7_ehg42"]
+[ext_resource type="PackedScene" uid="uid://81ujtorr3wbh" path="res://infantry_ant.tscn" id="10_vag3g"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mne6x"]
 vertices = PackedVector2Array(1110, 613.9219, 34, 606.0703, 34, 34, 1110, 34)
@@ -23,66 +28,124 @@ size = Vector2(29, 1171.1345)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccbq8"]
 size = Vector2(29, 663)
 
-[node name="FirstLevel" type="Node"]
+[node name="FirstLevel" type="Node" unique_id=623193004]
 script = ExtResource("1_mne6x")
 Basic_Mob = ExtResource("3_5nl2g")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+[node name="Terrain" type="Node2D" parent="." unique_id=1895362645]
+
+[node name="RockColliders" type="Node2D" parent="Terrain" unique_id=773202463]
+
+[node name="Rocks" type="StaticBody2D" parent="Terrain/RockColliders" unique_id=1969305097]
+
+[node name="Lvl1Left" type="CollisionPolygon2D" parent="Terrain/RockColliders/Rocks" unique_id=1284025927]
+polygon = PackedVector2Array(72, 5, 219, 5, 393, 6, 406, 52, 363, 109, 301, 173, 279, 173, 261, 175, 248, 221, 220, 251, 191, 255, 158, 243, 121, 212, 107, 241, 78, 256, 73, 266, 140, 290, 158, 319, 173, 406, 176, 453, 151, 488, 100, 514, 14, 545, -5, 547, 0, 34)
+
+[node name="Lvl1Right" type="CollisionPolygon2D" parent="Terrain/RockColliders/Rocks" unique_id=856071021]
+position = Vector2(1157, 2)
+polygon = PackedVector2Array(-41, -1, -443, -1, -393, 58, -317, 96, -271, 103, -275, 190, -223, 194, -203, 222, -171, 289, -159, 290, -191, 347, -140, 422, -70, 417, -7, 494, -7, 533, -53, 540, -77, 581, -79, 646, -144, 776, -164, 791, -226, 748, -284, 740, -305, 734, -305, 661, -363, 630, -362, 590, -457, 449, -500, 421, -620, 432, -729, 470, -768, 507, -769, 580, -775, 617, -760, 659, -722, 683, -701, 700, -735, 748, -741, 798, -705, 870, -677, 921, -605, 936, -537, 945, -481, 968, -443, 1005, -346, 1005, -213, 971, -131, 962, -110, 999, -9, 1029, 1, -6)
+
+[node name="Lvl2Left" type="CollisionPolygon2D" parent="Terrain/RockColliders/Rocks" unique_id=1428689302]
+position = Vector2(-6, 1078)
+polygon = PackedVector2Array(124, 5, -5, 2, 0, 571, 181, 557, 244, 561, 283, 478, 320, 384, 396, 392, 472, 388, 479, 344, 562, 354, 635, 337, 658, 318, 676, 215, 669, 164, 616, 136, 556, 118, 517, 113, 494, 128, 478, 151, 400, 133, 399, 129, 398, 125, 389, 76, 351, 37, 280, 46, 251, 50, 228, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/RockColliders/Rocks" unique_id=129871651]
+position = Vector2(948, 1835)
+polygon = PackedVector2Array(59, -21, 115, -24, 136, 53, 94, 117, 40, 126, 14, 93, -2, 12, 55, -26, 60, -15, 60, -13)
+
+[node name="Lvl2Right" type="CollisionPolygon2D" parent="Terrain/RockColliders/Rocks" unique_id=1932213715]
+position = Vector2(1160, 1263)
+polygon = PackedVector2Array(-98, 43, -139, 72, -146, 172, -175, 221, -198, 272, -183, 316, -211, 335, -201, 447, -189, 498, -128, 507, -65, 517, -46, 587, -14, 647, -2, -4, -82, 33)
+
+[node name="Lvl3Left" type="CollisionPolygon2D" parent="Terrain/RockColliders/Rocks" unique_id=1683191675]
+position = Vector2(371, 1543)
+polygon = PackedVector2Array(44, 21, 121, 74, 122, 140, 90, 224, -49, 238, -77, 254, -138, 214, -177, 136, -177, 94, -118, 54, -32, 9, 3, -3)
+
+[node name="U" type="CollisionPolygon2D" parent="Terrain/RockColliders/Rocks" unique_id=704545874]
+position = Vector2(-3, 2294)
+polygon = PackedVector2Array(79, -30, 126, -44, 112, -90, 154, -130, 237, -189, 279, -203, 361, -191, 407, -66, 369, -8, 335, 52, 325, 164, 292, 185, 158, 204, 191, 244, 227, 449, 117, 588, 207, 630, 257, 643, 391, 831, 463, 795, 605, 776, 755, 789, 851, 781, 915, 814, 979, 779, 978, 674, 1011, 611, 1064, 580, 924, 509, 886, 444, 894, 375, 947, 247, 875, 295, 773, 244, 680, 181, 628, 118, 639, -13, 660, -44, 797, -67, 868, 23, 945, 47, 1027, 58, 1032, 169, 1149, 160, 1153, -16, 1075, -131, 1158, -218, 1161, 949, 6, 951, 4, -12)
+
+[node name="Background" type="Sprite2D" parent="Terrain" unique_id=1446211580]
+position = Vector2(573.5, 1583.8132)
+scale = Vector2(0.42349926, 0.42349932)
+texture = ExtResource("6_5jff8")
+
+[node name="Amber" type="Sprite2D" parent="Terrain" unique_id=1018004207]
+position = Vector2(278, 491)
+scale = Vector2(0.39, 0.3970389)
+texture = ExtResource("4_l1oci")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=95068818]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_mne6x")
 
-[node name="Mob_Timer" type="Timer" parent="."]
+[node name="Mob_Timer" type="Timer" parent="." unique_id=1806829990]
 
-[node name="MobPath" type="Path2D" parent="."]
+[node name="MobPath" type="Path2D" parent="." unique_id=1038558084]
 curve = SubResource("Curve2D_fnyhn")
 
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" unique_id=1591213926]
 position = Vector2(0, 2)
 
-[node name="Player_Spawn" type="Marker2D" parent="."]
+[node name="Player_Spawn" type="Marker2D" parent="." unique_id=1110668868]
 position = Vector2(600, 350)
 
-[node name="web_weapon" parent="." instance=ExtResource("1_fnyhn")]
+[node name="web_weapon" parent="." unique_id=772307919 instance=ExtResource("1_fnyhn")]
+visible = false
 position = Vector2(578, 340)
 
-[node name="Boundaries" type="StaticBody2D" parent="."]
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=755114719]
 z_index = 1
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries" unique_id=646224423]
 position = Vector2(579, 5)
 rotation = 1.5766534
 shape = SubResource("RectangleShape2D_5puvx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries" unique_id=402534124]
 position = Vector2(4.5, 321.5)
 shape = SubResource("RectangleShape2D_ccbq8")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries" unique_id=1249588248]
 position = Vector2(1139, 323)
 shape = SubResource("RectangleShape2D_ccbq8")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundaries"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundaries" unique_id=830675001]
 position = Vector2(575, 643)
 rotation = 1.5766534
 shape = SubResource("RectangleShape2D_5puvx")
 
-[node name="1StLevel" type="Sprite2D" parent="."]
+[node name="1StLevel" type="Sprite2D" parent="." unique_id=1145524009]
+visible = false
 show_behind_parent = true
 position = Vector2(577.1011, 329.22238)
 rotation = -1.5707964
 scale = Vector2(0.67359024, 0.7891097)
 texture = ExtResource("3_7m365")
 
-[node name="NPC" parent="." instance=ExtResource("3_5nl2g")]
+[node name="NPC" parent="." unique_id=199215379 instance=ExtResource("3_5nl2g")]
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("1_5puvx")]
+[node name="PlayerCharacter" parent="." unique_id=2117828491 instance=ExtResource("1_5puvx")]
 position = Vector2(600, 350)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.65, 0.65)
 
-[node name="HealthBar" type="Label" parent="."]
-offset_left = 6.1035156e-05
+[node name="HealthBar" type="Label" parent="." unique_id=365647629]
 offset_right = 1689.564
 offset_bottom = 524.755
 theme_override_font_sizes/font_size = 50
 text = "Health: 3"
+
+[node name="infantry_ant" parent="." unique_id=314625903 instance=ExtResource("10_vag3g")]
+position = Vector2(-590, 575)
+
+[node name="AmberOverlay" type="Sprite2D" parent="." unique_id=1060749575]
+position = Vector2(279, 490.00006)
+scale = Vector2(0.3896637, 0.4000231)
+texture = ExtResource("5_8o0y0")
+
+[node name="Foreground2" type="Sprite2D" parent="." unique_id=152232162]
+position = Vector2(577, 1622)
+scale = Vector2(0.4245058, 0.42450583)
+texture = ExtResource("7_ehg42")
 
 [connection signal="timeout" from="Mob_Timer" to="." method="_on_mob_timer_timeout"]

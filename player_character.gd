@@ -8,10 +8,14 @@ var can_click_again = false
 @onready var health = 3
 @onready var Damage_Sound = $DamageSFX
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
  
 var dashing = false
 var dash_direction = null
 var dash_target = null
+
+var is_moving = false
 
 
 @onready var player_character: CharacterBody2D = $"."
@@ -112,6 +116,8 @@ func _physics_process(delta: float) -> void:
 	character_direction.x = Input.get_axis("move_down", "move_up")
 
 	if character_direction:
+		animation_player.play("walk")
+
 		
 		#DIRECTION CHARACTER IS FACING
 		#DIRECTION CHARACTER IS FACING
@@ -133,6 +139,7 @@ func _physics_process(delta: float) -> void:
 		velocity = movement_direction * movement_speed
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, 60)
+		animation_player.play("RESET")
 	#print(movement_speed)
 	
 	move_and_slide()
@@ -152,7 +159,6 @@ func take_damage() -> void:
 	get_parent().get_node("HealthBar").text = "Health: " + str(health)
 	if health == 0:
 		var main = get_parent()
-		queue_free()
 		if main:
 			main.game_over()
 	pass
