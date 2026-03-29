@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed: float = 2
-@onready var player: Node2D = get_parent().get_node("player_character")
+@export var speed: float = 100
+@onready var player: Node2D = get_parent().get_node("PlayerCharacter")
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
 # Called when the node enters the scene tree for the first time.
