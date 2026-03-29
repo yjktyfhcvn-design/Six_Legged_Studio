@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc6hgpar431oi"]
-
-[ext_resource type="Script" uid="uid://cjbyksglolmsi" path="res://first_level.gd" id="1_5puvx"]
+[gd_scene load_steps=10 format=3 uid="uid://dc6hgpar431oi"]
 
 [ext_resource type="PackedScene" uid="uid://dhm5idmtve0wx" path="res://player_character.tscn" id="1_5puvx"]
 [ext_resource type="PackedScene" uid="uid://ft8a5t24hu52" path="res://web_weapon.tscn" id="1_fnyhn"]
+[ext_resource type="Script" uid="uid://cjbyksglolmsi" path="res://first_level.gd" id="1_mne6x"]
 [ext_resource type="PackedScene" uid="uid://cbxiua56jhyhy" path="res://basic_npc.tscn" id="3_5nl2g"]
 [ext_resource type="Texture2D" uid="uid://dgoujhig3wg3g" path="res://Assets/1st_level.png" id="3_7m365"]
 
@@ -11,12 +10,6 @@
 vertices = PackedVector2Array(1110, 613.9219, 34, 606.0703, 34, 34, 1110, 34)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(24, 24, 24, 616, 1120, 624, 1120, 24, 32, 24)])
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5puvx"]
-size = Vector2(29, 1171.1345)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccbq8"]
-size = Vector2(29, 663)
 
 [sub_resource type="Curve2D" id="Curve2D_fnyhn"]
 _data = {
@@ -31,6 +24,8 @@ size = Vector2(29, 1171.1345)
 size = Vector2(29, 663)
 
 [node name="FirstLevel" type="Node"]
+script = ExtResource("1_mne6x")
+Basic_Mob = ExtResource("3_5nl2g")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_mne6x")
@@ -82,5 +77,12 @@ texture = ExtResource("3_7m365")
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_5puvx")]
 position = Vector2(600, 350)
 scale = Vector2(0.3, 0.3)
+
+[node name="HealthBar" type="Label" parent="."]
+offset_left = 6.1035156e-05
+offset_right = 1689.564
+offset_bottom = 524.755
+theme_override_font_sizes/font_size = 50
+text = "Health: 3"
 
 [connection signal="timeout" from="Mob_Timer" to="." method="_on_mob_timer_timeout"]
