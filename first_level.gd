@@ -13,12 +13,13 @@ func _process(delta: float) -> void:
 	pass
 	
 func game_over() -> void:
-	$MobTimer.stop()
+	$Mob_Timer.stop()
+	print("game over")
 	pass
 	
 func game_start() -> void:
 	#Change depending on what we call the player node
-	$PlayerCharacter.start($StartPosition.position)
+	$PlayerCharacter.position = $Player_Spawn.position
 	#Change Later to when game starts (but to test code)
 	$Mob_Timer.start()
 	
@@ -26,7 +27,6 @@ func game_start() -> void:
 
 
 func _on_mob_timer_timeout() -> void:
-	print("spawned")
 	var mob = Basic_Mob.instantiate()
 	
 	#Chooses a Random Location on Path to Spawn
@@ -35,5 +35,5 @@ func _on_mob_timer_timeout() -> void:
 	
 	# Set the mob's position to the random location.
 	mob.position = mob_spawn_location.position
-	
+	add_child(mob)
 	pass # Replace with function body.

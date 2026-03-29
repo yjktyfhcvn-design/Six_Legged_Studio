@@ -5,7 +5,7 @@ var can_click_again = false
 
 @onready var dash_timer: Timer = $DashTimer
 
-
+@onready var health = 3
 
  
 var dashing = false
@@ -87,7 +87,7 @@ func _physics_process(delta: float) -> void:
 	
 #ADD CODE THAT DECREASES MOVEMENT SPEED IF TWO KEYS ARE BEING PRESSED!!!
 	
-	print(dash_direction)
+	#print(dash_direction)
 	
 	if dashing == true:
 		if dash_target == dash_direction:
@@ -132,7 +132,7 @@ func _physics_process(delta: float) -> void:
 		velocity = movement_direction * movement_speed
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, 60)
-	print(movement_speed)
+	#print(movement_speed)
 	
 	move_and_slide()
 
@@ -144,3 +144,11 @@ func _on_double_click_timer_timeout() -> void:
 #This sets the length of time the player is moving at an accelerate speed
 func _on_dash_timer_timeout() -> void:
 	dashing = false
+	
+func take_damage() -> void:
+	health = health -1
+	if health == 0:
+		var main = get_parent()
+		if main:
+			main.game_over()
+	pass

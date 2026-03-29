@@ -65,7 +65,7 @@ remote_path = NodePath("../../../../BodySprites/LegLeft1")
 
 [node name="LegRight2Bone" type="Bone2D" parent="Bones/Skeleton2D"]
 position = Vector2(81, 17)
-rotation = -0.135614
+rotation = -0.13561401
 scale = Vector2(0.9999994, 0.9999994)
 rest = Transform2D(0.9908185, -0.13519867, 0.13519867, 0.9908185, 81, 17)
 
@@ -161,14 +161,14 @@ offset = Vector2(-43.235573, 64.85336)
 
 [node name="LegRight1" type="Sprite2D" parent="BodySprites"]
 position = Vector2(76.99999, -31)
-rotation = -0.049823064
+rotation = -0.04982309
 scale = Vector2(0.36999974, 0.36999974)
 texture = SubResource("CompressedTexture2D_eh3ko")
 offset = Vector2(43.23555, -83.76889)
 
 [node name="LegRight2" type="Sprite2D" parent="BodySprites"]
 position = Vector2(81, 17.000002)
-rotation = 0.106545806
+rotation = 0.10654579
 scale = Vector2(0.36999974, 0.36999974)
 texture = SubResource("CompressedTexture2D_bgme8")
 offset = Vector2(48.64, -43.235558)
