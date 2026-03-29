@@ -1,9 +1,47 @@
-[gd_scene format=3 uid="uid://vopkupid07kk"]
+[gd_scene load_steps=3 format=3 uid="uid://vopkupid07kk"]
 
-[node name="TitleScreen" type="Control" unique_id=2083224516]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+[ext_resource type="Script" uid="uid://cym8bhaec456o" path="res://title_screen.gd" id="1_ak2if"]
+[ext_resource type="Texture2D" uid="uid://dmlkqgjvgricn" path="res://Assets/Antville_TitleScreen.jpeg" id="1_v6p8y"]
+
+[node name="TitleScreen" type="Node"]
+script = ExtResource("1_ak2if")
+
+[node name="AntvilleTitleScreen" type="Sprite2D" parent="."]
+position = Vector2(592, 312)
+scale = Vector2(1, 0.6)
+texture = ExtResource("1_v6p8y")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -268.0
+offset_right = 67.0
+offset_bottom = -191.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Start!"
+
+[node name="Intructions" type="Label" parent="."]
+top_level = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = -168.0
+offset_right = 265.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "To Move: Arrow Keys or WSAD
+To Attack:
+Goal: Kill all the enemies and survive!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

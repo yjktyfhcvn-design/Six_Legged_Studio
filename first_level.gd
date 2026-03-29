@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 func game_over() -> void:
 	$Mob_Timer.stop()
 	print("game over")
+	get_tree().change_scene_to_file("res://game_over.tscn")
 	pass
 	
 func game_start() -> void:

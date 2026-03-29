@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Invading Anville"
-run/main_scene="uid://dc6hgpar431oi"
+run/main_scene="uid://vopkupid07kk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
