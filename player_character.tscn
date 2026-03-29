@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhm5idmtve0wx"]
+[gd_scene load_steps=18 format=3 uid="uid://dhm5idmtve0wx"]
 
 [ext_resource type="Texture2D" uid="uid://7gnrqkdggg8b" path="res://Assets/SpiderAssets/SpiderHead.png" id="1_4yf86"]
 [ext_resource type="Texture2D" uid="uid://pymh04bulko" path="res://Assets/SpiderAssets/LegLeft1.png" id="1_5up26"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://8shpagan1ryb" path="res://Assets/SpiderAssets/LegRight4.png" id="7_he2na"]
 [ext_resource type="Texture2D" uid="uid://ddgiwelm4y3ny" path="res://Assets/SpiderAssets/SpiderBody.png" id="8_p3c78"]
 [ext_resource type="Script" uid="uid://bh363snv51b5i" path="res://hitbox.gd" id="10_he2na"]
+[ext_resource type="AudioStream" uid="uid://ddgwy1ivs72bx" path="res://Assets/sfx_bump.ogg" id="11_p3c78"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eh3ko"]
 
@@ -217,12 +218,16 @@ wait_time = 0.2
 wait_time = 0.5
 
 [node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(1.15, 1.15)
 script = ExtResource("10_he2na")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0.29153442, 29.998583)
 scale = Vector2(15, 17)
 shape = SubResource("CircleShape2D_p3c78")
+
+[node name="DamageSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_p3c78")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="DoubleClickTimer" to="." method="_on_double_click_timer_timeout"]

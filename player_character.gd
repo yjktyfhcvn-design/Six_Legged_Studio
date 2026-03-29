@@ -6,6 +6,7 @@ var can_click_again = false
 @onready var dash_timer: Timer = $DashTimer
 
 @onready var health = 3
+@onready var Damage_Sound = $DamageSFX
 
  
 var dashing = false
@@ -146,6 +147,7 @@ func _on_dash_timer_timeout() -> void:
 	dashing = false
 	
 func take_damage() -> void:
+	Damage_Sound.play()
 	health = health -1
 	if health == 0:
 		var main = get_parent()
