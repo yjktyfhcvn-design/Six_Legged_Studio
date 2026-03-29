@@ -152,7 +152,6 @@ func take_damage() -> void:
 	get_parent().get_node("HealthBar").text = "Health: " + str(health)
 	if health == 0:
 		var main = get_parent()
-		queue_free()
 		if main:
 			main.game_over()
 	pass
