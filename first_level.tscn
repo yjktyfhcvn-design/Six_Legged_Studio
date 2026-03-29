@@ -91,7 +91,7 @@ texture = ExtResource("3_7m365")
 
 [node name="PlayerCharacter" parent="." unique_id=2117828491 instance=ExtResource("1_5puvx")]
 position = Vector2(600, 350)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.65, 0.65)
 
 [node name="HealthBar" type="Label" parent="." unique_id=365647629]
 offset_left = 6.1035156e-05
