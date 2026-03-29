@@ -78,4 +78,11 @@ texture = ExtResource("3_7m365")
 position = Vector2(600, 350)
 scale = Vector2(0.3, 0.3)
 
+[node name="HealthBar" type="Label" parent="."]
+offset_left = 6.1035156e-05
+offset_right = 1689.564
+offset_bottom = 524.755
+theme_override_font_sizes/font_size = 50
+text = "Health: 3"
+
 [connection signal="timeout" from="Mob_Timer" to="." method="_on_mob_timer_timeout"]

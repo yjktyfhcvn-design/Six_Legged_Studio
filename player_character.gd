@@ -149,8 +149,10 @@ func _on_dash_timer_timeout() -> void:
 func take_damage() -> void:
 	Damage_Sound.play()
 	health = health -1
+	get_parent().get_node("HealthBar").text = "Health: " + str(health)
 	if health == 0:
 		var main = get_parent()
+		queue_free()
 		if main:
 			main.game_over()
 	pass
