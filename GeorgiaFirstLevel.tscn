@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://prv5i2tcmj22"]
+
+[ext_resource type="PackedScene" uid="uid://ft8a5t24hu52" path="res://web_weapon.tscn" id="1_gha2v"]
+[ext_resource type="PackedScene" uid="uid://dhm5idmtve0wx" path="res://player_character.tscn" id="2_d6xw4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5puvx"]
+size = Vector2(29, 1171.1345)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccbq8"]
+size = Vector2(29, 663)
+
+[node name="FirstLevel" type="Node2D" unique_id=478433598]
+
+[node name="web_weapon" parent="." unique_id=610933113 instance=ExtResource("1_gha2v")]
+position = Vector2(578, 340)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1525485948]
+z_index = 1
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1050807322]
+position = Vector2(579, 5)
+rotation = 1.5766534
+shape = SubResource("RectangleShape2D_5puvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1606128763]
+position = Vector2(4.5, 321.5)
+shape = SubResource("RectangleShape2D_ccbq8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1809737905]
+position = Vector2(1139, 323)
+shape = SubResource("RectangleShape2D_ccbq8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1011199768]
+position = Vector2(575, 643)
+rotation = 1.5766534
+shape = SubResource("RectangleShape2D_5puvx")
+
+[node name="PlayerCharacter" parent="." unique_id=66292963 instance=ExtResource("2_d6xw4")]
+position = Vector2(580.99994, 327)
+scale = Vector2(0.5, 0.5)
