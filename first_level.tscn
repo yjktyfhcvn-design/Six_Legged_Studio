@@ -4,17 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://ft8a5t24hu52" path="res://web_weapon.tscn" id="1_fnyhn"]
 [ext_resource type="Script" uid="uid://cjbyksglolmsi" path="res://first_level.gd" id="1_mne6x"]
 [ext_resource type="PackedScene" uid="uid://cbxiua56jhyhy" path="res://basic_npc.tscn" id="3_5nl2g"]
-[ext_resource type="Texture2D" uid="uid://dgoujhig3wg3g" path="res://Assets/1st_level.png" id="3_7m365"]
 [ext_resource type="Texture2D" uid="uid://b66e8s0v0cce1" path="res://Assets/Amber.png" id="4_l1oci"]
 [ext_resource type="Texture2D" uid="uid://b3pqhsc42pfdd" path="res://Assets/AmberOverlay.png" id="5_8o0y0"]
 [ext_resource type="Texture2D" uid="uid://bskah0yltqte4" path="res://Assets/Untitled_Artwork (5).png" id="6_5jff8"]
 [ext_resource type="Texture2D" uid="uid://ck1bat24bccya" path="res://Assets/Untitled_Artwork (4).png" id="7_ehg42"]
-[ext_resource type="PackedScene" uid="uid://81ujtorr3wbh" path="res://infantry_ant.tscn" id="10_vag3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccbq8"]
+size = Vector2(29, 663)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ehg42"]
+radius = 267.16568
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mne6x"]
-vertices = PackedVector2Array(1110, 613.9219, 34, 606.0703, 34, 34, 1110, 34)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(24, 24, 24, 616, 1120, 624, 1120, 24, 32, 24)])
+vertices = PackedVector2Array(367.28906, 647.7578, 22.992188, 622.6328, 33.679688, 41.09375, 288.5078, 187.39844, 393.03125, 483.67188, 650.59375, 412.59375, 422.3828, 31.109375, 409.65625, 7.1015625, 713.84375, 8.9609375, 771.27344, 89.17969, 1112.5, 478.3203, 1141.7891, 518.1875, 1079.3828, 548.03906, 1028.7031, 440.67188, 434.35156, 708.97656, 409.28906, 752.8203, 10.1015625, 741.3125, 1038.6406, 719.1094, 1002.9531, 776.5469, 880.3281, 726.60156, 860.4297, 653.9297, 955.8828, 371.2578, 874.09375, 106.46875, 875.09375, 191.39844, 716.84375, 446.2578, 528.39844, 433.29688, 389.0078, 91.17969, 970.3906, 288.78906, 987.7031, 303.6328, 1087.5234, 431.03125, 805, 627.65625, 805, 576.9375, 945.1328, 213.03125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16, 1, 0), PackedInt32Array(13, 12, 17, 18, 19, 20, 21), PackedInt32Array(5, 9, 22, 23, 24), PackedInt32Array(25, 4, 3, 26), PackedInt32Array(5, 25, 26, 6), PackedInt32Array(27, 28, 21), PackedInt32Array(13, 29, 10), PackedInt32Array(21, 20, 30, 31), PackedInt32Array(27, 21, 31, 24, 23, 32)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(24, 24, 13, 622, -1, 751, 415, 763, 447, 707, 378, 644, 402, 491, 531, 443, 649, 423, 710, 454, 795, 580, 795, 634, 852, 661, 872, 734, 1007, 789, 1048, 723, 1088, 555, 1157, 522, 1121, 473, 1093, 420, 1032, 430, 968, 369, 1000, 301, 979, 283, 953, 205, 885, 184, 884, 98, 777, 80, 719, -1, 393, -3, 411, 31, 381, 85, 287, 175)])
 
 [sub_resource type="Curve2D" id="Curve2D_fnyhn"]
 _data = {
@@ -22,13 +26,7 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5puvx"]
-size = Vector2(29, 1171.1345)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccbq8"]
-size = Vector2(29, 663)
-
-[node name="FirstLevel" type="Node" unique_id=623193004]
+[node name="Toy 4" type="Node" unique_id=623193004]
 script = ExtResource("1_mne6x")
 Basic_Mob = ExtResource("3_5nl2g")
 
@@ -75,6 +73,45 @@ position = Vector2(278, 491)
 scale = Vector2(0.39, 0.3970389)
 texture = ExtResource("4_l1oci")
 
+[node name="Boundaries" type="StaticBody2D" parent="Terrain" unique_id=755114719]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Boundaries" unique_id=402534124]
+position = Vector2(4.5, 321.5)
+shape = SubResource("RectangleShape2D_ccbq8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Terrain/Boundaries" unique_id=1249588248]
+position = Vector2(1139, 323)
+shape = SubResource("RectangleShape2D_ccbq8")
+
+[node name="PlayerCharacter" parent="." unique_id=2117828491 instance=ExtResource("1_5puvx")]
+position = Vector2(562, 86)
+rotation = 3.1133716
+scale = Vector2(0.65000004, 0.65000004)
+
+[node name="Area2D" type="Area2D" parent="PlayerCharacter" unique_id=1286738329]
+
+[node name="StopNPCCollide" type="CollisionShape2D" parent="PlayerCharacter/Area2D" unique_id=1994902497]
+position = Vector2(-3.6400146, 19.905228)
+rotation = 0.84484535
+shape = SubResource("CircleShape2D_ehg42")
+
+[node name="NPC" parent="." unique_id=199215379 instance=ExtResource("3_5nl2g")]
+position = Vector2(950.00006, 581)
+rotation = -1.877719
+
+[node name="AmberNPC" parent="." unique_id=896284167 instance=ExtResource("3_5nl2g")]
+position = Vector2(282, 477)
+rotation = -1.2246234
+
+[node name="BehindAmberNPC1" parent="." unique_id=1113236179 instance=ExtResource("3_5nl2g")]
+position = Vector2(87, 708)
+rotation = -1.5644171
+
+[node name="BehindAbmerNPC2" parent="." unique_id=1089582823 instance=ExtResource("3_5nl2g")]
+position = Vector2(282.00003, 827)
+rotation = -1.3693801
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=95068818]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_mne6x")
@@ -88,64 +125,36 @@ curve = SubResource("Curve2D_fnyhn")
 position = Vector2(0, 2)
 
 [node name="Player_Spawn" type="Marker2D" parent="." unique_id=1110668868]
-position = Vector2(600, 350)
+position = Vector2(563, 89)
 
 [node name="web_weapon" parent="." unique_id=772307919 instance=ExtResource("1_fnyhn")]
 visible = false
 position = Vector2(578, 340)
-
-[node name="Boundaries" type="StaticBody2D" parent="." unique_id=755114719]
-z_index = 1
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries" unique_id=646224423]
-position = Vector2(579, 5)
-rotation = 1.5766534
-shape = SubResource("RectangleShape2D_5puvx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries" unique_id=402534124]
-position = Vector2(4.5, 321.5)
-shape = SubResource("RectangleShape2D_ccbq8")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries" unique_id=1249588248]
-position = Vector2(1139, 323)
-shape = SubResource("RectangleShape2D_ccbq8")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundaries" unique_id=830675001]
-position = Vector2(575, 643)
-rotation = 1.5766534
-shape = SubResource("RectangleShape2D_5puvx")
-
-[node name="1StLevel" type="Sprite2D" parent="." unique_id=1145524009]
-visible = false
-show_behind_parent = true
-position = Vector2(577.1011, 329.22238)
-rotation = -1.5707964
-scale = Vector2(0.67359024, 0.7891097)
-texture = ExtResource("3_7m365")
-
-[node name="NPC" parent="." unique_id=199215379 instance=ExtResource("3_5nl2g")]
-
-[node name="PlayerCharacter" parent="." unique_id=2117828491 instance=ExtResource("1_5puvx")]
-position = Vector2(600, 350)
-scale = Vector2(0.65, 0.65)
-
-[node name="HealthBar" type="Label" parent="." unique_id=365647629]
-offset_right = 1689.564
-offset_bottom = 524.755
-theme_override_font_sizes/font_size = 50
-text = "Health: 3"
-
-[node name="infantry_ant" parent="." unique_id=314625903 instance=ExtResource("10_vag3g")]
-position = Vector2(-590, 575)
-
-[node name="AmberOverlay" type="Sprite2D" parent="." unique_id=1060749575]
-position = Vector2(279, 490.00006)
-scale = Vector2(0.3896637, 0.4000231)
-texture = ExtResource("5_8o0y0")
 
 [node name="Foreground2" type="Sprite2D" parent="." unique_id=152232162]
 position = Vector2(577, 1622)
 scale = Vector2(0.4245058, 0.42450583)
 texture = ExtResource("7_ehg42")
 
+[node name="AmberOverlay" type="Sprite2D" parent="." unique_id=1060749575]
+position = Vector2(279, 490.00006)
+scale = Vector2(0.3896637, 0.4000231)
+texture = ExtResource("5_8o0y0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=250396925]
+position = Vector2(161, 324)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2103414079]
+polygon = PackedVector2Array(74, -20, 104, -30, 245, 4, 311, 119, 293, 145, 239, 164, 218, 292, 231, 337, 176, 360, 72, 372, 14, 304, -69, 218, -90, 195, -24, 166, 10, 123, -3, 39, -9, 0)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=767532764]
+position = Vector2(0, 320)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=1364898289]
+position = Vector2(500, 749)
+
+[connection signal="area_entered" from="PlayerCharacter/Area2D" to="NPC" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="PlayerCharacter/Area2D" to="NPC" method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="PlayerCharacter/Area2D" to="NPC" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PlayerCharacter/Area2D" to="NPC" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Mob_Timer" to="." method="_on_mob_timer_timeout"]

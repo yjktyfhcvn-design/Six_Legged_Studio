@@ -36,8 +36,6 @@ var movement_direction : Vector2
 
 func _ready():
 	add_child(DOUBLE_CLICK_TIMER)
-	
-
 		
 func move(direction : Vector2):
 	movement_direction = direction
@@ -96,7 +94,7 @@ func _physics_process(delta: float) -> void:
 	
 	if dashing == true:
 		if dash_target == dash_direction:
-			movement_speed = 1250
+			movement_speed = 1000
 			_rotation_speed = TAU * 6
 	if dashing == false:
 		movement_speed = 500
@@ -116,7 +114,7 @@ func _physics_process(delta: float) -> void:
 	character_direction.x = Input.get_axis("move_down", "move_up")
 
 	if character_direction:
-		animation_player.play("walk")
+		
 
 		
 		#DIRECTION CHARACTER IS FACING
@@ -156,7 +154,7 @@ func _on_dash_timer_timeout() -> void:
 func take_damage() -> void:
 	Damage_Sound.play()
 	health = health -1
-	get_parent().get_node("HealthBar").text = "Health: " + str(health)
+	#get_parent().get_node("HealthBar").text = "Health: " + str(health)
 	if health == 0:
 		var main = get_parent()
 		if main:

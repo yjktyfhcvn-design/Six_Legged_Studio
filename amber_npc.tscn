@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cbxiua56jhyhy"]
+[gd_scene format=3 uid="uid://civ57duqcmbcm"]
 
-[ext_resource type="Script" uid="uid://ceu3upa04nhs8" path="res://basic_npc.gd" id="1_j7ean"]
-[ext_resource type="PackedScene" uid="uid://81ujtorr3wbh" path="res://infantry_ant.tscn" id="2_lbwi3"]
+[ext_resource type="Script" uid="uid://ceu3upa04nhs8" path="res://basic_npc.gd" id="1_isb22"]
+[ext_resource type="PackedScene" uid="uid://81ujtorr3wbh" path="res://infantry_ant.tscn" id="2_dpnse"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_lbwi3"]
 
@@ -11,9 +11,9 @@ height = 184.0
 
 [node name="NPC" type="CharacterBody2D" unique_id=896284167 groups=["npc"]]
 collision_mask = 0
-script = ExtResource("1_j7ean")
+script = ExtResource("1_isb22")
 
-[node name="infantry_ant" parent="." unique_id=314625903 instance=ExtResource("2_lbwi3")]
+[node name="infantry_ant" parent="." unique_id=314625903 instance=ExtResource("2_dpnse")]
 position = Vector2(61.124916, 3.1216116)
 rotation = 1.6139717
 scale = Vector2(0.29, 0.29)

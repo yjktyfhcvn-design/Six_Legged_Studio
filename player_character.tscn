@@ -220,21 +220,19 @@ _data = {
 &"walk": SubResource("Animation_g1g7m")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4yf86"]
-radius = 90.44335
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_8bl0p"]
-radius = 41.48494
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_he2na"]
-radius = 165.01895
+radius = 98.52031
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3c78"]
+radius = 5.507326
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1024965867]
 rotation = 0.009717941
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_8bl0p")
+
+[node name="GlideInTimer" type="Timer" parent="." unique_id=2097196715]
+wait_time = 0.05
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1831162421]
 libraries/ = SubResource("AnimationLibrary_pi6eu")
@@ -314,6 +312,7 @@ remote_path = NodePath("../../../../BodySprites/LegLeft3")
 [node name="LegRight4Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1055657852]
 position = Vector2(48, 100)
 rotation = 0.55048597
+scale = Vector2(0.9999999, 0.9999999)
 rest = Transform2D(0.883644, 0.4681595, -0.4681595, 0.883644, 48, 100)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegRight4Bone" unique_id=1415784444]
@@ -388,8 +387,8 @@ offset = Vector2(89.17334, 37.8311)
 
 [node name="LegRight4" type="Sprite2D" parent="BodySprites" unique_id=495919957]
 position = Vector2(47.999996, 100)
-rotation = 0.05687282
-scale = Vector2(0.37000003, 0.37000003)
+rotation = 0.056872856
+scale = Vector2(0.36999997, 0.36999997)
 texture = ExtResource("7_he2na")
 offset = Vector2(48.639984, 72.96001)
 
@@ -399,20 +398,7 @@ rotation = 0.003530246
 scale = Vector2(0.38493723, 0.38493714)
 texture = ExtResource("8_p3c78")
 
-[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=959663293]
-visible = false
-position = Vector2(4.7683716e-07, 19)
-rotation = 0.33049217
-shape = SubResource("CircleShape2D_4yf86")
-
-[node name="HeadCollision" type="CollisionShape2D" parent="." unique_id=565629644]
-visible = false
-position = Vector2(-1.0000019, -67)
-rotation = 0.33049217
-shape = SubResource("CircleShape2D_8bl0p")
-
 [node name="FullBodyWorldBoundryCollision" type="CollisionShape2D" parent="." unique_id=1596055966]
-visible = false
 z_index = 1
 position = Vector2(-0.9462601, 31.260672)
 shape = SubResource("CircleShape2D_he2na")
@@ -428,15 +414,20 @@ scale = Vector2(1.15, 1.15)
 script = ExtResource("10_he2na")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1924153018]
-visible = false
 position = Vector2(0.29153442, 29.998583)
+rotation = -0.048160173
 scale = Vector2(15, 17)
 shape = SubResource("CircleShape2D_p3c78")
 
 [node name="DamageSFX" type="AudioStreamPlayer2D" parent="." unique_id=424844030]
 stream = ExtResource("11_p3c78")
 
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=343505668]
+visible = false
+position = Vector2(2.5254006, 131.23166)
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="GlideInTimer" to="." method="_on_glide_in_timer_timeout"]
 [connection signal="timeout" from="DoubleClickTimer" to="." method="_on_double_click_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
