@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://civ57duqcmbcm"]
+[gd_scene load_steps=0 format=3 uid="uid://civ57duqcmbcm"]
 
 [ext_resource type="Script" uid="uid://ceu3upa04nhs8" path="res://basic_npc.gd" id="1_isb22"]
 [ext_resource type="PackedScene" uid="uid://81ujtorr3wbh" path="res://infantry_ant.tscn" id="2_dpnse"]
