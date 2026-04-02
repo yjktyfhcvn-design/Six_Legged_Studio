@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbwi3"]
 radius = 34.4799
-height = 184.0
+height = 231.9688
 
 [node name="NPC" type="CharacterBody2D" unique_id=896284167 groups=["npc"]]
 collision_mask = 0
@@ -19,12 +19,13 @@ rotation = 1.6139717
 scale = Vector2(0.29, 0.29)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1411668334]
+visible = false
 scale = Vector2(20, 20)
 mesh = SubResource("SphereMesh_lbwi3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1727534202]
-position = Vector2(-0.9380181, 2.0298083)
-rotation = -1.5979472
+position = Vector2(-1, 1)
+rotation = -1.5707651
 shape = SubResource("CapsuleShape2D_lbwi3")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=764328327]

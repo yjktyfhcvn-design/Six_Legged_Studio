@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bptu6du3bsypn"]
+
+[ext_resource type="Texture2D" uid="uid://b3pqhsc42pfdd" path="res://Assets/AmberOverlay.png" id="1_1bhuc"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0jxfx"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 0.864
+initial_velocity_min = 916.67
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+
+[node name="ShatteredAmber" type="Node2D" unique_id=527122385]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1059637468]
+emitting = false
+texture = ExtResource("1_1bhuc")
+one_shot = true
+explosiveness = 0.54
+trail_enabled = true
+trail_lifetime = 0.58
+process_material = SubResource("ParticleProcessMaterial_0jxfx")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c15atqw038e8g"]
+
+[ext_resource type="Texture2D" uid="uid://b3pqhsc42pfdd" path="res://Assets/AmberOverlay.png" id="1_2j51h"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ah5qx"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 261.9
+initial_velocity_max = 261.9
+gravity = Vector3(0, 98, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=94841768]
+rotation = -1.1717259
+emitting = false
+texture = ExtResource("1_2j51h")
+one_shot = true
+explosiveness = 0.5
+trail_enabled = true
+trail_lifetime = 0.58
+process_material = SubResource("ParticleProcessMaterial_ah5qx")

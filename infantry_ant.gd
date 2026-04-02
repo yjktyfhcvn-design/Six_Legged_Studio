@@ -5,4 +5,4 @@ extends CharacterBody2D
 
 func _physics_process(delta: float) -> void:
 	leg_animation_player.play("walk")
-	pincer_animation.play("pincer_animation")
+	pincer_animation.play("pincers")

@@ -221,10 +221,10 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_he2na"]
-radius = 98.52031
+radius = 161.26938
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3c78"]
-radius = 5.507326
+radius = 7.68157
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1024965867]
 rotation = 0.009717941
@@ -293,6 +293,7 @@ remote_path = NodePath("../../../../BodySprites/LegLeft2")
 [node name="LegRight3Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1406718281]
 position = Vector2(69, 61)
 rotation = 0.26587662
+scale = Vector2(0.99999976, 0.99999976)
 rest = Transform2D(0.9913299, 0.13139634, -0.13139634, 0.9913299, 69, 61)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegRight3Bone" unique_id=2131892520]
@@ -302,6 +303,7 @@ remote_path = NodePath("../../../../BodySprites/LegRight3")
 [node name="LegLeft3Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1949387258]
 position = Vector2(-76, 62.999992)
 rotation = -3.0516992
+scale = Vector2(0.99999994, 0.99999994)
 rest = Transform2D(-0.9963949, -0.08483658, 0.08483658, -0.9963949, -76, 62.999992)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegLeft3Bone" unique_id=1622624958]
@@ -312,7 +314,7 @@ remote_path = NodePath("../../../../BodySprites/LegLeft3")
 [node name="LegRight4Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=1055657852]
 position = Vector2(48, 100)
 rotation = 0.55048597
-scale = Vector2(0.9999999, 0.9999999)
+scale = Vector2(0.99999994, 0.99999994)
 rest = Transform2D(0.883644, 0.4681595, -0.4681595, 0.883644, 48, 100)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegRight4Bone" unique_id=1415784444]
@@ -323,7 +325,7 @@ remote_path = NodePath("../../../../BodySprites/LegRight4")
 [node name="LegLeft4Bone" type="Bone2D" parent="Bones/Skeleton2D" unique_id=109379119]
 position = Vector2(-49.000004, 104)
 rotation = 2.5830498
-scale = Vector2(0.9999998, 0.9999998)
+scale = Vector2(0.9999997, 0.9999997)
 rest = Transform2D(-0.84694284, 0.5316839, -0.5316839, -0.84694284, -49.000004, 104)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegLeft4Bone" unique_id=458734783]
@@ -340,8 +342,8 @@ texture = ExtResource("1_4yf86")
 
 [node name="LegLeft1" type="Sprite2D" parent="BodySprites" unique_id=419688380]
 position = Vector2(-79, -31)
-rotation = -0.058058012
-scale = Vector2(0.37, 0.37)
+rotation = -0.18822958
+scale = Vector2(0.36999995, 0.36999995)
 texture = ExtResource("1_5up26")
 offset = Vector2(-32.426666, -81.06667)
 
@@ -354,41 +356,41 @@ offset = Vector2(-32.42665, -43.235558)
 
 [node name="LegLeft3" type="Sprite2D" parent="BodySprites" unique_id=1539839425]
 position = Vector2(-76.00001, 62.99999)
-rotation = -0.1095517
+rotation = -0.41431215
 scale = Vector2(0.37, 0.37)
 texture = ExtResource("3_0hvvw")
 offset = Vector2(-45.93779, 40.53334)
 
 [node name="LegLeft4" type="Sprite2D" parent="BodySprites" unique_id=892760582]
 position = Vector2(-49.000004, 104)
-rotation = -0.074639075
-scale = Vector2(0.36999995, 0.36999995)
+rotation = -0.009277124
+scale = Vector2(0.3699999, 0.3699999)
 texture = ExtResource("4_6qc1w")
 offset = Vector2(-43.235573, 64.85336)
 
 [node name="LegRight1" type="Sprite2D" parent="BodySprites" unique_id=810590552]
-position = Vector2(97.87853, -59.92507)
-rotation = -0.028887259
-scale = Vector2(0.36999968, 0.36999968)
+position = Vector2(80.43409, -67.06153)
+rotation = -0.51381236
+scale = Vector2(0.3699997, 0.3699997)
 texture = ExtResource("7_bgme8")
 
 [node name="LegRight2" type="Sprite2D" parent="BodySprites" unique_id=123737680]
-position = Vector2(105.65136, 1.6554252)
-rotation = 0.06401956
+position = Vector2(109.68612, 12.499779)
+rotation = 0.46518314
 scale = Vector2(0.3699998, 0.3699998)
 texture = ExtResource("8_g1g7m")
 
 [node name="LegRight3" type="Sprite2D" parent="BodySprites" unique_id=2126103650]
 position = Vector2(69, 61.000004)
-rotation = 0.2658766
-scale = Vector2(0.37000006, 0.37000006)
+rotation = 0.05600933
+scale = Vector2(0.36999992, 0.36999992)
 texture = ExtResource("6_8bl0p")
 offset = Vector2(89.17334, 37.8311)
 
 [node name="LegRight4" type="Sprite2D" parent="BodySprites" unique_id=495919957]
 position = Vector2(47.999996, 100)
-rotation = 0.056872856
-scale = Vector2(0.36999997, 0.36999997)
+rotation = 0.27002266
+scale = Vector2(0.37000003, 0.37000003)
 texture = ExtResource("7_he2na")
 offset = Vector2(48.639984, 72.96001)
 

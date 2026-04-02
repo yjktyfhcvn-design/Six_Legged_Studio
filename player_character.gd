@@ -10,6 +10,9 @@ var can_click_again = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var visible_attack: Sprite2D = $AttackHB/Screenshot20260331At12_00_29Pm
+
+
  
 var dashing = false
 var dash_direction = null
@@ -36,12 +39,19 @@ var movement_direction : Vector2
 
 func _ready():
 	add_child(DOUBLE_CLICK_TIMER)
+	visible_attack.visible = false
 		
 func move(direction : Vector2):
 	movement_direction = direction
 	
 
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("attack"):
+		visible_attack.visible = true
+	else:
+		visible_attack.visible = false
+		
 	
 	if Input.is_action_just_pressed("move_left") and can_click_again == false:
 		DOUBLE_CLICK_TIMER.start()
@@ -115,7 +125,7 @@ func _physics_process(delta: float) -> void:
 
 	if character_direction:
 		
-
+		animation_player.play("walk")
 		
 		#DIRECTION CHARACTER IS FACING
 		#DIRECTION CHARACTER IS FACING

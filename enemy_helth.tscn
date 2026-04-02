@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://1iblqdyfareo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0k15"]
+bg_color = Color(0.677439, 0.25438586, 0.23816481, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d80bh"]
+bg_color = Color(0, 0.64347327, 0.36829525, 1)
+
+[node name="EnemyHelth" type="ProgressBar" unique_id=1041855961]
+offset_right = 100.0
+offset_bottom = 30.0
+theme_override_styles/background = SubResource("StyleBoxFlat_d0k15")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d80bh")
+value = 33.0
+show_percentage = false

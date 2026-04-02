@@ -6,14 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://cbxiua56jhyhy" path="res://basic_npc.tscn" id="3_5nl2g"]
 [ext_resource type="Texture2D" uid="uid://b66e8s0v0cce1" path="res://Assets/Amber.png" id="4_l1oci"]
 [ext_resource type="Texture2D" uid="uid://b3pqhsc42pfdd" path="res://Assets/AmberOverlay.png" id="5_8o0y0"]
+[ext_resource type="Script" uid="uid://dyt5ricidnj8t" path="res://amber.gd" id="5_vag3g"]
 [ext_resource type="Texture2D" uid="uid://bskah0yltqte4" path="res://Assets/Untitled_Artwork (5).png" id="6_5jff8"]
+[ext_resource type="Texture2D" uid="uid://ccsx0mj036iwn" path="res://Assets/Screenshot 2026-03-31 at 12.00.29 PM.png" id="6_rfkqk"]
+[ext_resource type="PackedScene" uid="uid://c15atqw038e8g" path="res://gpu_particles_2d.tscn" id="7_an01n"]
 [ext_resource type="Texture2D" uid="uid://ck1bat24bccya" path="res://Assets/Untitled_Artwork (4).png" id="7_ehg42"]
+[ext_resource type="PackedScene" uid="uid://1iblqdyfareo" path="res://enemy_helth.tscn" id="10_l1oci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vag3g"]
+radius = 499.9847
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccbq8"]
-size = Vector2(29, 663)
+size = Vector2(4.409733, 1169.0032)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ehg42"]
-radius = 267.16568
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehg42"]
+radius = 87.112305
+height = 262.9286
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mne6x"]
 vertices = PackedVector2Array(367.28906, 647.7578, 22.992188, 622.6328, 33.679688, 41.09375, 288.5078, 187.39844, 393.03125, 483.67188, 650.59375, 412.59375, 422.3828, 31.109375, 409.65625, 7.1015625, 713.84375, 8.9609375, 771.27344, 89.17969, 1112.5, 478.3203, 1141.7891, 518.1875, 1079.3828, 548.03906, 1028.7031, 440.67188, 434.35156, 708.97656, 409.28906, 752.8203, 10.1015625, 741.3125, 1038.6406, 719.1094, 1002.9531, 776.5469, 880.3281, 726.60156, 860.4297, 653.9297, 955.8828, 371.2578, 874.09375, 106.46875, 875.09375, 191.39844, 716.84375, 446.2578, 528.39844, 433.29688, 389.0078, 91.17969, 970.3906, 288.78906, 987.7031, 303.6328, 1087.5234, 431.03125, 805, 627.65625, 805, 576.9375, 945.1328, 213.03125)
@@ -64,7 +72,7 @@ position = Vector2(-3, 2294)
 polygon = PackedVector2Array(79, -30, 126, -44, 112, -90, 154, -130, 237, -189, 279, -203, 361, -191, 407, -66, 369, -8, 335, 52, 325, 164, 292, 185, 158, 204, 191, 244, 227, 449, 117, 588, 207, 630, 257, 643, 391, 831, 463, 795, 605, 776, 755, 789, 851, 781, 915, 814, 979, 779, 978, 674, 1011, 611, 1064, 580, 924, 509, 886, 444, 894, 375, 947, 247, 875, 295, 773, 244, 680, 181, 628, 118, 639, -13, 660, -44, 797, -67, 868, 23, 945, 47, 1027, 58, 1032, 169, 1149, 160, 1153, -16, 1075, -131, 1158, -218, 1161, 949, 6, 951, 4, -12)
 
 [node name="Background" type="Sprite2D" parent="Terrain" unique_id=1446211580]
-position = Vector2(573.5, 1583.8132)
+position = Vector2(579, 1598)
 scale = Vector2(0.42349926, 0.42349932)
 texture = ExtResource("6_5jff8")
 
@@ -72,45 +80,91 @@ texture = ExtResource("6_5jff8")
 position = Vector2(278, 491)
 scale = Vector2(0.39, 0.3970389)
 texture = ExtResource("4_l1oci")
+script = ExtResource("5_vag3g")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/Amber" unique_id=250396925]
+position = Vector2(-300.00003, -420.61353)
+scale = Vector2(2.5641026, 2.5186448)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Amber/StaticBody2D" unique_id=2103414079]
+polygon = PackedVector2Array(74, -20, 104, -30, 245, 4, 311, 119, 293, 145, 239, 164, 218, 292, 231, 337, 176, 360, 72, 372, 14, 304, -69, 218, -90, 195, -24, 166, 10, 123, -3, 39, -9, 0)
+
+[node name="AmberOverlay" type="Sprite2D" parent="Terrain/Amber" unique_id=1060749575]
+position = Vector2(2.564087, -2.5184326)
+scale = Vector2(0.9991377, 1.0075161)
+texture = ExtResource("5_8o0y0")
+
+[node name="break" type="Area2D" parent="Terrain/Amber" unique_id=1074197629]
+position = Vector2(-51.28205, 118.376305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Amber/break" unique_id=2003838476]
+position = Vector2(64.10254, -141.04411)
+rotation = 1.90401
+shape = SubResource("CircleShape2D_vag3g")
+
+[node name="GPUParticles2D" parent="Terrain" unique_id=94841768 instance=ExtResource("7_an01n")]
+position = Vector2(278, 491)
+rotation = -1.1780902
+scale = Vector2(0.39598417, 0.39107084)
+skew = 0.012808561
 
 [node name="Boundaries" type="StaticBody2D" parent="Terrain" unique_id=755114719]
 z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Boundaries" unique_id=402534124]
-position = Vector2(4.5, 321.5)
+position = Vector2(-5.5, 509)
 shape = SubResource("RectangleShape2D_ccbq8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Terrain/Boundaries" unique_id=1249588248]
-position = Vector2(1139, 323)
+position = Vector2(1160, 500)
 shape = SubResource("RectangleShape2D_ccbq8")
 
-[node name="PlayerCharacter" parent="." unique_id=2117828491 instance=ExtResource("1_5puvx")]
-position = Vector2(562, 86)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Terrain/Boundaries" unique_id=55227185]
+position = Vector2(581.50854, -40.91552)
+rotation = -1.5740122
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_ccbq8")
+
+[node name="PlayerCharacter" parent="." unique_id=2117828491 groups=["player"] instance=ExtResource("1_5puvx")]
+position = Vector2(562, 88.00001)
 rotation = 3.1133716
 scale = Vector2(0.65000004, 0.65000004)
 
-[node name="Area2D" type="Area2D" parent="PlayerCharacter" unique_id=1286738329]
+[node name="AttackHB" type="Area2D" parent="PlayerCharacter" unique_id=1371016421]
 
-[node name="StopNPCCollide" type="CollisionShape2D" parent="PlayerCharacter/Area2D" unique_id=1994902497]
-position = Vector2(-3.6400146, 19.905228)
-rotation = 0.84484535
-shape = SubResource("CircleShape2D_ehg42")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerCharacter/AttackHB" unique_id=1754970352 groups=["player"]]
+position = Vector2(-2.9639359, -58.56849)
+scale = Vector2(1.1818017, 1.1818016)
+polygon = PackedVector2Array(131.61243, -2.7963257, 1.0787964, 70.82788, -118.37927, -4.643982, -75.725586, -85.485596, -35.146973, -117.96178, -2.5482178, -127.81508, 35.637573, -117.5027, 65.8736, -98.18031)
+
+[node name="Screenshot20260331At12_00_29Pm" type="Sprite2D" parent="PlayerCharacter/AttackHB" unique_id=1546852964 groups=["player"]]
+z_index = 1
+position = Vector2(-1.9318745, -124.177795)
+scale = Vector2(0.34168664, 0.27405754)
+texture = ExtResource("6_rfkqk")
 
 [node name="NPC" parent="." unique_id=199215379 instance=ExtResource("3_5nl2g")]
 position = Vector2(950.00006, 581)
 rotation = -1.877719
 
-[node name="AmberNPC" parent="." unique_id=896284167 instance=ExtResource("3_5nl2g")]
-position = Vector2(282, 477)
-rotation = -1.2246234
+[node name="Area2D" type="Area2D" parent="NPC" unique_id=1350501445]
 
-[node name="BehindAmberNPC1" parent="." unique_id=1113236179 instance=ExtResource("3_5nl2g")]
-position = Vector2(87, 708)
-rotation = -1.5644171
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2D" unique_id=1636053552]
+position = Vector2(6.6260047, -1.0471017)
+rotation = 1.6050113
+shape = SubResource("CapsuleShape2D_ehg42")
 
-[node name="BehindAbmerNPC2" parent="." unique_id=1089582823 instance=ExtResource("3_5nl2g")]
-position = Vector2(282.00003, 827)
-rotation = -1.3693801
+[node name="EnemyHelth" parent="NPC" unique_id=1041855961 instance=ExtResource("10_l1oci")]
+offset_left = -100.32757
+offset_top = -47.53301
+offset_right = -0.32750702
+offset_bottom = -17.533009
+rotation = 1.6389995
+max_value = 30.0
+value = 30.0
+
+[node name="Timer" type="Timer" parent="NPC" unique_id=70676929]
+wait_time = 0.1
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=95068818]
 visible = false
@@ -136,25 +190,18 @@ position = Vector2(577, 1622)
 scale = Vector2(0.4245058, 0.42450583)
 texture = ExtResource("7_ehg42")
 
-[node name="AmberOverlay" type="Sprite2D" parent="." unique_id=1060749575]
-position = Vector2(279, 490.00006)
-scale = Vector2(0.3896637, 0.4000231)
-texture = ExtResource("5_8o0y0")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=250396925]
-position = Vector2(161, 324)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2103414079]
-polygon = PackedVector2Array(74, -20, 104, -30, 245, 4, 311, 119, 293, 145, 239, 164, 218, 292, 231, 337, 176, 360, 72, 372, 14, 304, -69, 218, -90, 195, -24, 166, 10, 123, -3, 39, -9, 0)
-
 [node name="Marker2D" type="Marker2D" parent="." unique_id=767532764]
 position = Vector2(0, 320)
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=1364898289]
 position = Vector2(500, 749)
 
-[connection signal="area_entered" from="PlayerCharacter/Area2D" to="NPC" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="PlayerCharacter/Area2D" to="NPC" method="_on_area_2d_area_exited"]
-[connection signal="body_entered" from="PlayerCharacter/Area2D" to="NPC" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="PlayerCharacter/Area2D" to="NPC" method="_on_area_2d_body_exited"]
+[node name="StartOtherNPCs" type="Timer" parent="." unique_id=1454889647]
+
+[connection signal="body_entered" from="Terrain/Amber/break" to="Terrain/Amber" method="_on_break_body_entered"]
+[connection signal="body_entered" from="PlayerCharacter/AttackHB" to="NPC" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PlayerCharacter/AttackHB" to="NPC" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="NPC/Area2D" to="NPC" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="NPC/Area2D" to="NPC" method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="NPC/Timer" to="NPC" method="_on_timer_timeout"]
 [connection signal="timeout" from="Mob_Timer" to="." method="_on_mob_timer_timeout"]
