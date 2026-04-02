@@ -20,7 +20,6 @@ var pushback_force = Vector2.ZERO
 
 var in_pursuit = true
 var in_field = false
-var can_attack = false
 
 var amber_broken = false
 
@@ -29,74 +28,32 @@ var health = 3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start()
-	can_attack = false
 	
-	
-func en_take_damage(damage):
-	if enemy_health.value < damage:
-		damage = enemy_health.value
-	enemy_health.value -= damage
 
-
-func knock_back(source_position: Vector2) -> void:
-	pushback_force = -global_position.direction_to(source_position) * 300
 	
 func physics_process(delta: float) -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if position.y >= 320 and position.x <= 500 and !amber_broken:
-		in_pursuit = false
-
-
+	
 	#Tells nav_agent where we want to go (player)
 	nav_agent.target_position = player.global_position
 	
 	#Nav_Agent gives a path towards player
-	if in_pursuit == true :
-		var next_path_position := nav_agent.get_next_path_position()
-		var direction := global_position.direction_to(next_path_position)
+	var next_path_position := nav_agent.get_next_path_position()
+	var direction := global_position.direction_to(next_path_position)
 	
 	#Move towards the player
-		npc.look_at(player.position)
-		look_at(player.position)
-		velocity.x = direction.x * speed
-		velocity.y = direction.y * speed
-		move_and_slide()
-	print(can_attack)
+	npc.look_at(player.position)
+	look_at(player.position)
+	velocity.x = direction.x * speed
+	velocity.y = direction.y * speed
+	move_and_slide()
+
 	
-		
-	if Input.is_action_just_pressed("attack") and can_attack == true:
-		en_take_damage(10)
-	
-	if enemy_health.value == 0:
+	if enemy_health.value <= 0:
 		defeated()
 		
-	#print(in_pursuit)
-	
 func defeated() -> void:
 	queue_free()
-	
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		print("i'm working")
-		in_pursuit = false
-	
-		can_attack = true
-	
-		
-	
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		in_pursuit = true
-		
-		can_attack = false
-
-
-	
-func _on_timer_timeout() -> void:
-	can_attack = false

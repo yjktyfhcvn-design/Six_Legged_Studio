@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://vopkupid07kk"]
 
-[ext_resource type="Script" uid="uid://cym8bhaec456o" path="res://title_screen.gd" id="1_ak2if"]
+[ext_resource type="Script" path="res://title_screen.gd" id="1_ak2if"]
 [ext_resource type="Texture2D" uid="uid://dmlkqgjvgricn" path="res://Assets/Antville_TitleScreen.jpeg" id="1_v6p8y"]
 
 [node name="TitleScreen" type="Node"]
 script = ExtResource("1_ak2if")
 
 [node name="AntvilleTitleScreen" type="Sprite2D" parent="."]
-position = Vector2(592, 312)
-scale = Vector2(1, 0.6)
+position = Vector2(592, 377.8)
+scale = Vector2(1, 0.72801554)
 texture = ExtResource("1_v6p8y")
 
 [node name="Button" type="Button" parent="."]
