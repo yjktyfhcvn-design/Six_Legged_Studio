@@ -125,14 +125,14 @@ rotation = -1.5740122
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_ccbq8")
 
-[node name="PlayerCharacter" parent="." groups=["player"] instance=ExtResource("1_5puvx")]
+[node name="PlayerCharacter" parent="." groups=["attack", "player"] instance=ExtResource("1_5puvx")]
 position = Vector2(562, 88.00001)
 rotation = 3.1133716
 scale = Vector2(0.65000004, 0.65000004)
 
-[node name="AttackHB" type="Area2D" parent="PlayerCharacter"]
+[node name="AttackHB" type="Area2D" parent="PlayerCharacter" groups=["attack"]]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerCharacter/AttackHB" groups=["player"]]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerCharacter/AttackHB" groups=["attack", "player"]]
 position = Vector2(-2.9639359, -58.56849)
 scale = Vector2(1.1818017, 1.1818016)
 polygon = PackedVector2Array(131.61243, -2.7963257, 1.0787964, 70.82788, -118.37927, -4.643982, -75.725586, -85.485596, -35.146973, -117.96178, -2.5482178, -127.81508, 35.637573, -117.5027, 65.8736, -98.18031)
@@ -177,7 +177,7 @@ navigation_polygon = SubResource("NavigationPolygon_mne6x")
 curve = SubResource("Curve2D_fnyhn")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2(0, 2)
+position = Vector2(0, -40)
 
 [node name="Player_Spawn" type="Marker2D" parent="."]
 position = Vector2(563, 89)
@@ -190,14 +190,6 @@ position = Vector2(578, 340)
 position = Vector2(577, 1622)
 scale = Vector2(0.4245058, 0.42450583)
 texture = ExtResource("7_ehg42")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, 320)
-
-[node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(500, 749)
-
-[node name="StartOtherNPCs" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Terrain/Amber/break" to="Terrain/Amber" method="_on_break_body_entered"]
 [connection signal="body_entered" from="PlayerCharacter/AttackHB" to="NPC" method="_on_area_2d_body_entered"]

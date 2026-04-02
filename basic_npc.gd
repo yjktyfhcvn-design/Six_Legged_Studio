@@ -11,10 +11,7 @@ extends CharacterBody2D
 
 @onready var infantry_ant: CharacterBody2D = $infantry_ant
 
-@onready var enemy_health: ProgressBar = $EnemyHelth
-
-
-
+var enemy_health = 1
 var pushback_force = Vector2.ZERO
 
 
@@ -52,8 +49,15 @@ func _process(delta: float) -> void:
 	move_and_slide()
 
 	
-	if enemy_health.value <= 0:
+	if enemy_health <= 0:
 		defeated()
 		
 func defeated() -> void:
 	queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("attack"):
+		print("Damage")
+		defeated()
+	pass # Replace with function body.
