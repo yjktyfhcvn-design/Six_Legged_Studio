@@ -6,14 +6,14 @@
 [sub_resource type="SphereMesh" id="SphereMesh_lbwi3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbwi3"]
-radius = 16.0
-height = 32.0
+radius = 48.0
+height = 96.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmnds"]
-radius = 39.97659
-height = 109.11643
+radius = 15.990637
+height = 31.981274
 
-[node name="NPC" type="CharacterBody2D"]
+[node name="NPC" type="CharacterBody2D" groups=["npc"]]
 collision_mask = 0
 script = ExtResource("1_j7ean")
 
@@ -28,7 +28,7 @@ scale = Vector2(20, 20)
 mesh = SubResource("SphereMesh_lbwi3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(80, 0)
+position = Vector2(40, 0)
 rotation = -1.5707651
 shape = SubResource("CapsuleShape2D_lbwi3")
 
@@ -38,10 +38,18 @@ target_desired_distance = 3.0
 path_postprocessing = 1
 
 [node name="NPCHitbox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCHitbox"]
-position = Vector2(32, 0)
+position = Vector2(80, 0)
 rotation = 1.6050113
 shape = SubResource("CapsuleShape2D_dmnds")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="NPCHitbox" to="." method="_on_npc_hitbox_area_entered"]
+[connection signal="body_entered" from="NPCHitbox" to="." method="_on_npc_hitbox_body_entered"]
 [connection signal="body_entered" from="NPCHitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

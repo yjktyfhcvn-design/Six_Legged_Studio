@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var pincer_animation: AnimationPlayer = $PincerAnimation
 
 @onready var infantry_ant: CharacterBody2D = $infantry_ant
+@onready var timer: Timer = $Timer
 
 var enemy_health = 1
 var pushback_force = Vector2.ZERO
@@ -19,7 +20,7 @@ var in_field = false
 
 var amber_broken = false
 
-var health = 3
+var can_attack = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,8 +30,13 @@ func _ready() -> void:
 func physics_process(delta: float) -> void:
 	pass
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(can_attack)
+	if Input.is_action_just_pressed("attack"):
+		can_attack = true
+		timer.start()
 	
 	#Tells nav_agent where we want to go (player)
 	nav_agent.target_position = player.global_position
@@ -53,9 +59,19 @@ func _process(delta: float) -> void:
 func defeated() -> void:
 	queue_free()
 
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("attack"):
-		print("Damage")
+func _on_npc_hitbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
 		defeated()
+	pass # Replace with function body.
+
+
+func _on_npc_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("attack") and can_attack:
+		print("attack")
+		defeated()
+	pass # Replace with function body.
+
+
+func _on_timer_timeout() -> void:
+	can_attack = false
 	pass # Replace with function body.

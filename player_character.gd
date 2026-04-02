@@ -19,7 +19,7 @@ var dash_direction = null
 var dash_target = null
 
 var is_moving = false
-
+var can_attack = false
 
 @onready var player_character: CharacterBody2D = $"."
 
