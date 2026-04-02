@@ -14,11 +14,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and can_break == true:
 		amber.visible = false
-		start_other_npcs.start()
 		
 
 
 func _on_break_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("attack"):
 		can_break = true
 		

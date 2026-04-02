@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cbxiua56jhyhy"]
+[gd_scene load_steps=6 format=3 uid="uid://cbxiua56jhyhy"]
 
 [ext_resource type="Script" uid="uid://ceu3upa04nhs8" path="res://basic_npc.gd" id="1_j7ean"]
 [ext_resource type="PackedScene" uid="uid://81ujtorr3wbh" path="res://infantry_ant.tscn" id="2_lbwi3"]
@@ -6,29 +6,42 @@
 [sub_resource type="SphereMesh" id="SphereMesh_lbwi3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbwi3"]
-radius = 34.4799
-height = 231.9688
+radius = 16.0
+height = 32.0
 
-[node name="NPC" type="CharacterBody2D" unique_id=896284167 groups=["npc"]]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmnds"]
+radius = 39.97659
+height = 109.11643
+
+[node name="NPC" type="CharacterBody2D"]
 collision_mask = 0
 script = ExtResource("1_j7ean")
 
-[node name="infantry_ant" parent="." unique_id=314625903 instance=ExtResource("2_lbwi3")]
+[node name="infantry_ant" parent="." instance=ExtResource("2_lbwi3")]
 position = Vector2(61.124916, 3.1216116)
 rotation = 1.6139717
-scale = Vector2(0.29, 0.29)
+scale = Vector2(0.1, 0.1)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1411668334]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 visible = false
 scale = Vector2(20, 20)
 mesh = SubResource("SphereMesh_lbwi3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1727534202]
-position = Vector2(-1, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(80, 0)
 rotation = -1.5707651
 shape = SubResource("CapsuleShape2D_lbwi3")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=764328327]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 3.0
 target_desired_distance = 3.0
 path_postprocessing = 1
+
+[node name="NPCHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCHitbox"]
+position = Vector2(32, 0)
+rotation = 1.6050113
+shape = SubResource("CapsuleShape2D_dmnds")
+
+[connection signal="body_entered" from="NPCHitbox" to="." method="_on_area_2d_body_entered"]

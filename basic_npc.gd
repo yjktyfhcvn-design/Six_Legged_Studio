@@ -4,7 +4,6 @@ extends CharacterBody2D
 @onready var player: Node2D = get_parent().get_node("PlayerCharacter")
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var npc: CharacterBody2D = $"."
-@onready var timer: Timer = $Timer
 
 @onready var leg_animation_player: AnimationPlayer = $"Leg Animation Player"
 @onready var pincer_animation: AnimationPlayer = $PincerAnimation
@@ -24,8 +23,7 @@ var health = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start()
-	
+	pass
 
 	
 func physics_process(delta: float) -> void:

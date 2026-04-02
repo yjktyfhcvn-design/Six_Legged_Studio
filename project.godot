@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Invading Anville"
 run/main_scene="uid://vopkupid07kk"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
@@ -26,6 +26,7 @@ window/size/viewport_height=748
 [global_group]
 
 player=""
+attack=""
 
 [input]
 

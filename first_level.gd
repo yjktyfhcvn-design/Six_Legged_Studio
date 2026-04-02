@@ -28,13 +28,13 @@ func game_start() -> void:
 
 
 func _on_mob_timer_timeout() -> void:
-	#var mob = Basic_Mob.instantiate()
-	#
+	var mob = Basic_Mob.instantiate()
+	print("spawned")
 	#Chooses a Random Location on Path to Spawn
-	#var mob_spawn_location = $MobPath/MobSpawnLocation
-	#mob_spawn_location.progress_ratio = randf()
+	var mob_spawn_location = $MobPath/MobSpawnLocation
+	mob_spawn_location.progress_ratio = randf()
 	
 	# Set the mob's position to the random location.
-	#mob.position = mob_spawn_location.position
-	#add_child(mob)
+	mob.position = mob_spawn_location.position
+	add_child(mob)
 	pass

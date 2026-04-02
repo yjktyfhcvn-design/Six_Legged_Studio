@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhm5idmtve0wx"]
+[gd_scene load_steps=17 format=3 uid="uid://dhm5idmtve0wx"]
 
 [ext_resource type="Texture2D" uid="uid://7gnrqkdggg8b" path="res://Assets/SpiderAssets/SpiderHead.png" id="1_4yf86"]
 [ext_resource type="Texture2D" uid="uid://pymh04bulko" path="res://Assets/SpiderAssets/LegLeft1.png" id="1_5up26"]
@@ -13,9 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://ddgiwelm4y3ny" path="res://Assets/SpiderAssets/SpiderBody.png" id="8_p3c78"]
 [ext_resource type="Script" uid="uid://bh363snv51b5i" path="res://hitbox.gd" id="10_he2na"]
 [ext_resource type="AudioStream" uid="uid://ddgwy1ivs72bx" path="res://Assets/sfx_bump.ogg" id="11_p3c78"]
+[ext_resource type="Texture2D" uid="uid://ccsx0mj036iwn" path="res://Assets/Screenshot 2026-03-31 at 12.00.29 PM.png" id="14_g1g7m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_he2na"]
-radius = 161.26938
+radius = 171.4734
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3c78"]
 radius = 9.27892
@@ -220,6 +221,19 @@ stream = ExtResource("11_p3c78")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
 position = Vector2(2.5254006, 131.23166)
+
+[node name="AttackHB" type="Area2D" parent="." groups=["attack"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackHB" groups=["attack"]]
+position = Vector2(-2.9639359, -58.56849)
+scale = Vector2(1.1818017, 1.1818016)
+polygon = PackedVector2Array(131.61243, -2.7963257, 1.0787964, 70.82788, -118.37927, -4.643982, -75.725586, -85.485596, -35.146973, -117.96178, -2.5482178, -127.81508, 35.637573, -117.5027, 65.8736, -98.18031)
+
+[node name="Screenshot20260331At12_00_29Pm" type="Sprite2D" parent="AttackHB" groups=["player"]]
+z_index = 1
+position = Vector2(-1.9318745, -124.177795)
+scale = Vector2(0.34168664, 0.27405754)
+texture = ExtResource("14_g1g7m")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="GlideInTimer" to="." method="_on_glide_in_timer_timeout"]
