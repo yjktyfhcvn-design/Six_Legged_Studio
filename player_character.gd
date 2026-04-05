@@ -3,6 +3,9 @@ extends CharacterBody2D
 var can_click_again = false
 @onready var DOUBLE_CLICK_TIMER: Timer = $DoubleClickTimer
 
+@onready var player_health: ProgressBar = $EnemyHelth
+
+
 @onready var dash_timer: Timer = $DashTimer
 
 @onready var health = 3
@@ -40,6 +43,7 @@ var movement_direction : Vector2
 func _ready():
 	add_child(DOUBLE_CLICK_TIMER)
 	visible_attack.visible = false
+	player_health.value = 30
 		
 func move(direction : Vector2):
 	movement_direction = direction
@@ -163,6 +167,7 @@ func _on_dash_timer_timeout() -> void:
 	
 func take_damage() -> void:
 	Damage_Sound.play()
+	player_health.value -= 10
 	health = health -1
 	#get_parent().get_node("HealthBar").text = "Health: " + str(health)
 	if health == 0:

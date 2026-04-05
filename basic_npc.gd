@@ -21,6 +21,7 @@ var in_field = false
 var amber_broken = false
 
 var can_attack = false
+var in_hitbox = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,6 +38,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		can_attack = true
 		timer.start()
+	else:
+		can_attack = false
 	
 	#Tells nav_agent where we want to go (player)
 	nav_agent.target_position = player.global_position
@@ -51,7 +54,11 @@ func _process(delta: float) -> void:
 	velocity.x = direction.x * speed
 	velocity.y = direction.y * speed
 	move_and_slide()
-
+	
+	if can_attack and in_hitbox:
+		print("attack")
+		defeated()
+	
 	
 	if enemy_health <= 0:
 		defeated()
@@ -64,12 +71,23 @@ func _on_npc_hitbox_body_entered(body: Node2D) -> void:
 		defeated()
 	pass # Replace with function body.
 
+#BACKUP CODE
+
+#func _on_npc_hitbox_area_entered(area: Area2D) -> void:
+	#if area.is_in_group("attack") and can_attack:
+		#print("attack")
+		#defeated()
+	#pass # Replace with function body.
 
 func _on_npc_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("attack") and can_attack:
-		print("attack")
-		defeated()
-	pass # Replace with function body.
+	if area.is_in_group("attack"):
+		in_hitbox = true
+
+func _on_npc_hitbox_area_exited(area: Area2D) -> void:
+	if area.is_in_group("attack"):
+		in_hitbox = false
+
+	
 
 
 func _on_timer_timeout() -> void:

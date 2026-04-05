@@ -1,18 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://dc6hgpar431oi"]
+[gd_scene load_steps=14 format=3 uid="uid://dc6hgpar431oi"]
 
 [ext_resource type="PackedScene" uid="uid://dhm5idmtve0wx" path="res://player_character.tscn" id="1_5puvx"]
 [ext_resource type="PackedScene" uid="uid://ft8a5t24hu52" path="res://web_weapon.tscn" id="1_fnyhn"]
 [ext_resource type="Script" uid="uid://cjbyksglolmsi" path="res://first_level.gd" id="1_mne6x"]
 [ext_resource type="PackedScene" uid="uid://cbxiua56jhyhy" path="res://basic_npc.tscn" id="3_5nl2g"]
-[ext_resource type="Texture2D" uid="uid://b66e8s0v0cce1" path="res://Assets/Amber.png" id="4_l1oci"]
-[ext_resource type="Texture2D" uid="uid://b3pqhsc42pfdd" path="res://Assets/AmberOverlay.png" id="5_8o0y0"]
-[ext_resource type="Script" uid="uid://dyt5ricidnj8t" path="res://amber.gd" id="5_vag3g"]
 [ext_resource type="Texture2D" uid="uid://bskah0yltqte4" path="res://Assets/Untitled_Artwork (5).png" id="6_5jff8"]
-[ext_resource type="PackedScene" path="res://gpu_particles_2d.tscn" id="7_an01n"]
+[ext_resource type="PackedScene" uid="uid://c15atqw038e8g" path="res://gpu_particles_2d.tscn" id="7_an01n"]
 [ext_resource type="Texture2D" uid="uid://ck1bat24bccya" path="res://Assets/Untitled_Artwork (4).png" id="7_ehg42"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vag3g"]
-radius = 499.9847
+[ext_resource type="PackedScene" uid="uid://1iblqdyfareo" path="res://enemy_helth.tscn" id="9_8o0y0"]
+[ext_resource type="FontFile" uid="uid://dnfr8of7won7m" path="res://Rockstar-ExtraBold.otf" id="9_l1oci"]
+[ext_resource type="Script" uid="uid://b3o7w1c410qhg" path="res://control.gd" id="9_rfkqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccbq8"]
 size = Vector2(4.409733, 1169.0032)
@@ -39,11 +36,11 @@ Basic_Mob = ExtResource("3_5nl2g")
 [node name="Rocks" type="StaticBody2D" parent="Terrain/RockColliders"]
 
 [node name="Lvl1Left" type="CollisionPolygon2D" parent="Terrain/RockColliders/Rocks"]
-polygon = PackedVector2Array(72, 5, 219, 5, 393, 6, 406, 52, 363, 109, 301, 173, 279, 173, 261, 175, 248, 221, 220, 251, 191, 255, 158, 243, 121, 212, 107, 241, 78, 256, 73, 266, 140, 290, 158, 319, 173, 406, 176, 453, 151, 488, 100, 514, 14, 545, -5, 547, 0, 34)
+polygon = PackedVector2Array(72, 5, 219, 5, 393, 6, 406, 52, 363, 109, 301, 173, 279, 173, 261, 175, 248, 221, 220, 251, 191, 255, 158, 243, 121, 212, 107, 241, 78, 256, 73, 266, 140, 290, 158, 319, 173, 406, 162, 454, 141, 487, 100, 514, 14, 545, -5, 547, 0, 34)
 
 [node name="Lvl1Right" type="CollisionPolygon2D" parent="Terrain/RockColliders/Rocks"]
 position = Vector2(1157, 2)
-polygon = PackedVector2Array(-41, -1, -443, -1, -393, 58, -317, 96, -271, 103, -275, 190, -223, 194, -203, 222, -171, 289, -159, 290, -191, 347, -140, 422, -70, 417, -7, 494, -7, 533, -53, 540, -77, 581, -79, 646, -144, 776, -164, 791, -226, 748, -284, 740, -305, 734, -305, 661, -363, 630, -362, 590, -457, 449, -500, 421, -620, 432, -729, 470, -768, 507, -769, 580, -775, 617, -760, 659, -722, 683, -701, 700, -735, 748, -741, 798, -705, 870, -677, 921, -605, 936, -537, 945, -481, 968, -443, 1005, -346, 1005, -213, 971, -131, 962, -110, 999, -9, 1029, 1, -6)
+polygon = PackedVector2Array(-41, -1, -443, -1, -393, 58, -317, 96, -271, 103, -275, 190, -223, 194, -203, 222, -171, 289, -159, 290, -191, 347, -140, 422, -70, 417, -7, 494, -7, 533, -53, 540, -77, 581, -79, 646, -144, 776, -164, 791, -226, 748, -284, 740, -305, 734, -305, 661, -363, 630, -362, 590, -457, 449, -500, 421, -620, 432, -729, 470, -749, 510, -769, 580, -775, 617, -760, 659, -722, 683, -701, 700, -735, 748, -741, 798, -705, 870, -677, 921, -605, 936, -537, 945, -481, 968, -443, 1005, -346, 1005, -213, 971, -131, 962, -110, 999, -9, 1029, 1, -6)
 
 [node name="Lvl2Left" type="CollisionPolygon2D" parent="Terrain/RockColliders/Rocks"]
 position = Vector2(-6, 1078)
@@ -70,32 +67,6 @@ position = Vector2(579, 1598)
 scale = Vector2(0.42349926, 0.42349932)
 texture = ExtResource("6_5jff8")
 
-[node name="Amber" type="Sprite2D" parent="Terrain"]
-position = Vector2(278, 491)
-scale = Vector2(0.39, 0.3970389)
-texture = ExtResource("4_l1oci")
-script = ExtResource("5_vag3g")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Terrain/Amber"]
-position = Vector2(-300.00003, -420.61353)
-scale = Vector2(2.5641026, 2.5186448)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Amber/StaticBody2D"]
-polygon = PackedVector2Array(74, -20, 104, -30, 245, 4, 311, 119, 293, 145, 239, 164, 218, 292, 231, 337, 176, 360, 72, 372, 14, 304, -69, 218, -90, 195, -24, 166, 10, 123, -3, 39, -9, 0)
-
-[node name="AmberOverlay" type="Sprite2D" parent="Terrain/Amber"]
-position = Vector2(2.564087, -2.5184326)
-scale = Vector2(0.9991377, 1.0075161)
-texture = ExtResource("5_8o0y0")
-
-[node name="break" type="Area2D" parent="Terrain/Amber"]
-position = Vector2(-51.28205, 118.376305)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Amber/break"]
-position = Vector2(64.10254, -141.04411)
-rotation = 1.90401
-shape = SubResource("CircleShape2D_vag3g")
-
 [node name="GPUParticles2D" parent="Terrain" instance=ExtResource("7_an01n")]
 position = Vector2(278, 491)
 rotation = -1.1780902
@@ -119,15 +90,26 @@ rotation = -1.5740122
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_ccbq8")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Terrain/Boundaries"]
+position = Vector2(581.5085, 744.0845)
+rotation = -1.5740122
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_ccbq8")
+
 [node name="PlayerCharacter" parent="." groups=["player"] instance=ExtResource("1_5puvx")]
 position = Vector2(562, 88.00001)
 rotation = 3.1133716
 scale = Vector2(0.65000004, 0.65000004)
 
+[node name="EnemyHelth" parent="PlayerCharacter" instance=ExtResource("9_8o0y0")]
+offset_left = -44.169983
+offset_top = 92.636665
+offset_right = 40.830017
+offset_bottom = 108.63667
+
 [node name="NPC" parent="." instance=ExtResource("3_5nl2g")]
 position = Vector2(1248, 583.99994)
 rotation = -1.877719
-scale = Vector2(0.5, 0.5)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
@@ -154,5 +136,59 @@ position = Vector2(577, 1622)
 scale = Vector2(0.4245058, 0.42450583)
 texture = ExtResource("7_ehg42")
 
-[connection signal="body_entered" from="Terrain/Amber/break" to="Terrain/Amber" method="_on_break_body_entered"]
+[node name="TimeLeft" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("9_l1oci")
+theme_override_font_sizes/font_size = 50
+text = "Time Left"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_rfkqk")
+
+[node name="sec" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 44.0
+offset_right = 77.0
+offset_bottom = 84.0
+theme_override_fonts/normal_font = ExtResource("9_l1oci")
+theme_override_font_sizes/normal_font_size = 50
+text = "00
+"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 51.0
+offset_right = 105.0
+offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("9_l1oci")
+theme_override_font_sizes/font_size = 30
+text = ":"
+
+[node name="dsec" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 44.0
+offset_right = 153.0
+offset_bottom = 84.0
+theme_override_fonts/normal_font = ExtResource("9_l1oci")
+theme_override_font_sizes/normal_font_size = 50
+text = "00"
+
+[node name="Timer" type="Timer" parent="Control"]
+process_callback = 0
+wait_time = 0.1
+autostart = true
+
+[node name="GameTimer" type="Timer" parent="Control"]
+wait_time = 25.0
+
 [connection signal="timeout" from="Mob_Timer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]
+[connection signal="timeout" from="Control/GameTimer" to="Control" method="_on_game_timer_timeout"]

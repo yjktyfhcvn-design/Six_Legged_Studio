@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://bybapgssr7s8e"]
+
+[ext_resource type="Script" uid="uid://cqg7ks727lyfa" path="res://game_won.gd" id="1_glrca"]
+
+[node name="game_won" type="Node"]
+script = ExtResource("1_glrca")
+
+[node name="You Won!" type="Label" parent="."]
+offset_left = 446.0
+offset_top = 231.0
+offset_right = 674.0
+offset_bottom = 300.0
+theme_override_font_sizes/font_size = 50
+text = "You Won!"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 208.0
+offset_top = 318.0
+offset_right = 961.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 30
+text = " Congratulations, You survived behind enemy lines 
+for long enough for your eggs to hatch and overtake
+                               the ant colony!"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 433.0
+offset_top = 478.0
+offset_right = 719.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 50
+text = "Play Again?"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

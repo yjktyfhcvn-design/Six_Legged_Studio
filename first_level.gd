@@ -18,6 +18,8 @@ func game_over() -> void:
 	get_tree().change_scene_to_file("res://game_over.tscn")
 	pass
 	
+
+	
 func game_start() -> void:
 	#Change depending on what we call the player node
 	$PlayerCharacter.position = $Player_Spawn.position

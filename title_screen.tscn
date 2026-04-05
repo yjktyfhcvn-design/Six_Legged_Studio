@@ -41,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "To Move: Arrow Keys or WSAD
-To Attack:
+To Attack: Space or A
 Goal: Kill all the enemies and survive!"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

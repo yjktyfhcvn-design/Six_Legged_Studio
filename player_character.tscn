@@ -87,7 +87,7 @@ remote_path = NodePath("../../../../BodySprites/LegLeft2")
 [node name="LegRight3Bone" type="Bone2D" parent="Bones/Skeleton2D"]
 position = Vector2(69, 61)
 rotation = 0.26587662
-scale = Vector2(0.9999997, 0.9999997)
+scale = Vector2(0.99999964, 0.99999964)
 rest = Transform2D(0.9913299, 0.13139634, -0.13139634, 0.9913299, 69, 61)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegRight3Bone"]
@@ -107,8 +107,8 @@ remote_path = NodePath("../../../../BodySprites/LegLeft3")
 
 [node name="LegRight4Bone" type="Bone2D" parent="Bones/Skeleton2D"]
 position = Vector2(48, 100)
-rotation = 0.5504859
-scale = Vector2(0.99999994, 0.99999994)
+rotation = 0.55048585
+scale = Vector2(0.9999999, 0.9999999)
 rest = Transform2D(0.883644, 0.4681595, -0.4681595, 0.883644, 48, 100)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Bones/Skeleton2D/LegRight4Bone"]
@@ -183,7 +183,7 @@ offset = Vector2(89.17334, 37.8311)
 
 [node name="LegRight4" type="Sprite2D" parent="BodySprites"]
 position = Vector2(47.999996, 100)
-rotation = 0.056872804
+rotation = 0.056872755
 scale = Vector2(0.36999997, 0.36999997)
 texture = ExtResource("7_he2na")
 offset = Vector2(48.639984, 72.96001)
@@ -226,9 +226,9 @@ position = Vector2(2.5254006, 131.23166)
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackHB" groups=["attack"]]
-position = Vector2(-10.582596, -59.89999)
+position = Vector2(-9.028973, -28.663612)
 scale = Vector2(1.1818017, 1.1818016)
-polygon = PackedVector2Array(245.45868, 6.076626, 1.0787964, 70.82788, -220.73273, -74.01338, -111.312, -134.31116, -52.247658, -151.80927, 40.743942, -161.17505, 150.90475, -145.3215, 202.08344, -103.508575, 236.50406, -44.60869)
+polygon = PackedVector2Array(109.14322, -88.85452, 109.400185, -62.413094, 1.0787964, 70.82788, -93.76249, -69.95852, -96.03199, -85.80282, -104.72965, -110.04671, -88.033264, -133.47963, -37.491848, -157.24147, 54.555157, -154.96272, 102.32446, -137.44508, 114.08203, -124.86627, 113.24023, -102.64519)
 
 [node name="Screenshot20260331At12_00_29Pm" type="Sprite2D" parent="AttackHB" groups=["player"]]
 z_index = 1
